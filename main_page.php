@@ -1,5 +1,5 @@
 <?php
-    include_once("connect.php");
+include_once("connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="main_page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="shortcut icon" href="https://shop.to.coffee/favicon.ico" type="image/x-icon">
@@ -16,212 +16,493 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <script src="jquery-3.7.1.js"></script>
     <title>TO.Coffee - интернет-магазин вкусного кофе</title>
 </head>
 
 <body>
-    <header>
-        <h1 id="phone">8 800 302-26-54</h1>
-        <a href="">
-            <img id="logo" src="img/logo.png" alt="">
-        </a>
-        <a href="">
-            <div id="search"></div>
-        </a>
-        <a href="">
-            <div id="acc"></div>
-        </a>
-        <a href="">
-            <div id="stat"></div>
-        </a>
-        <div class="stat_counter">
-            0
-        </div>
-        <a href="">
-            <div id="cart"></div>
-        </a>
-        <div class="cart_counter">
-            0
-        </div>
-    </header>
-    <nav>
-        <ul class="nav-bar">
-            <li class="nav-bar-item nav-bar-item-coffee">
+    <div class="mobile-wrapper">
+        <header class="mobile-header">
+            <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
+                <path data-name="Rounded Rectangle 81 copy 4" class="cls-1" d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z" transform="translate(-863 -946)"></path>
+            </svg>
+            <div class="logo-container">
+                <img id="logo" src="img/logo_small.png" alt="">
+            </div>
+            <div class="mobile-nav-menu">
                 <a href="">
-                    Кофе
-                    <ul class="sub-menu">
-                        <a href="">
-                            <li id="sub-menu-item">Ароматизированный кофе</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Кофейные смеси</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Моносорта</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Спешалити</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Ферментированный кофе</li>
-                        </a>
-                    </ul>
+                    <div id="search" class="nav-menu-item"></div>
                 </a>
-            </li>
-            <li class="nav-bar-item nav-bar-item-coffee">
                 <a href="">
-                    Чай
-                    <ul class="sub-menu">
-                        <a href="">
-                            <li id="sub-menu-item">Белый</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Зеленый</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Пуэр</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Травяной</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Улун</li>
-                        </a>
-                        <a href="">
-                            <li id="sub-menu-item">Черный</li>
-                        </a>
-                    </ul>
+                    <div id="acc" class="nav-menu-item"></div>
                 </a>
-            </li>
-            <a href="">
-                <li class="nav-bar-item">акции</li>
-            </a>
-            <a href="">
-                <li class="nav-bar-item">как купить</li>
-            </a>
-            <a href="">
-                <li class="nav-bar-item">о компании</li>
-            </a>
-            <a href="">
-                <li class="nav-bar-item">оптовикам</li>
-            </a>
-        </ul>
-    </nav>
-    <hr>
-    <span id="bcg_preview">
-        <img id="bcg_preview_img" src="img/bcg_preview.jpg" alt="">
-    </span>
-    <aside>
-        <ul class="aside_bar">
-            <li>
-                <img id="Free_shipping_img" src="img/Free_shipping.png" alt="">
-                <h2 id="Free_shipping_text">Бесплатная доставка</h2>
-                <p id="Free_shipping_text">Уменьшим стоимость доставки товара <br> на 15% от стоимости заказа</p>
-            </li>
-            <li>
-                <img id="payment_img" src="img/payment.png" alt="">
-                <h2 id="payment_text">Оплата при получении</h2>
-                <p id="payment_text">Платите только тогда, когда <br> забрали посылку</p>
-            </li>
-            <li>
-                <img id="gift_img" src="img/gift.png" alt="">
-                <h2 id="gift_text">Чай в подарок</h2>
-                <p id="gift_text">Фирменная чайная смесь в подарок <br> при заказе от 3 000 ₽</p>
-            </li>
-            <li>
-                <img id="discount_img" src="img/discount.png" alt="">
-                <h2 id="discount_text">Система скидок</h2>
-                <p id="discount_text">Действует накопительная система <br> скидок от суммы заказа</p>
-            </li>
-        </ul>
-    </aside>
-    <hr>
-    <main>
-        <div class="top_block">
-            <h3>Лучшие предложения</h3>
-            <div class="right_side_top_block">
-                <ul class="top_block_tabs">
-                    <a href="">
-                        <li id="top_block_tabs_checked">Хит</li>
-                    </a>
-                    <a href="">
-                        <li>Советуем</li>
-                    </a>
-                    <a href="">
-                        <li>Новинка</li>
-                    </a>
-                    <a href="">
-                        <li>Акция</li>
-                    </a>
+                <a href="">
+                    <div id="cart" class="nav-menu-item"></div>
+                </a>
+                <div class="cart_counter" id="mobile-nav-menu-item">
+                    0
+                </div>
+            </div>
+        </header>
+        <div class="mobile-main-container">
+            <span id="bcg_preview">
+                <img id="bcg_preview_img" src="img/bcg_preview.jpg" alt="">
+            </span>
+        </div>
+        <div class="mobile-aside">
+            <div class="main-container-aside-bar">
+                <ul class="aside_bar">
+                    <li class="aside-bar-item">
+                        <img id="Free_shipping_img" src="img/Free_shipping.png" alt="">
+                        <h2 id="Free_shipping_text">Бесплатная доставка</h2>
+                        <p id="Free_shipping_text">Уменьшим стоимость доставки товара <br> на 15% от стоимости заказа
+                        </p>
+                    </li>
+                    <li class="aside-bar-item">
+                        <img id="payment_img" src="img/payment.png" alt="">
+                        <h2 id="Free_shipping_text">Оплата при получении</h2>
+                        <p id="Free_shipping_text">Платите только тогда, когда <br> забрали посылку</p>
+                    </li>
+                    <li class="aside-bar-item">
+                        <img id="gift_img" src="img/gift.png" alt="">
+                        <h2 id="Free_shipping_text">Чай в подарок</h2>
+                        <p id="Free_shipping_text">Фирменная чайная смесь в подарок <br> при заказе от 3 000 ₽</p>
+                    </li>
+                    <li class="aside-bar-item">
+                        <img id="discount_img" src="img/discount.png" alt="">
+                        <h2 id="Free_shipping_text">Система скидок</h2>
+                        <p id="Free_shipping_text">Действует накопительная система <br> скидок от суммы заказа</p>
+                    </li>
                 </ul>
             </div>
         </div>
-        <ul class="goods_list">
-            <li class="goods-list-item">
-                <img id="milk_blend_img" src="img/milk_blend.jpg" alt="">
-                <div class="properties">
-                    <h3>Милк Бленд</h3>
-                    <div class="properties_item">
-                        <div class="properties_title">Тип обжарки</div>
-                        <div class="properties_value">Эспрессо</div>
-                    </div>
-                    <div class="properties_item">
-                        <div class="properties_title">Кислотность</div>
-                        <div class="properties_value">
-                            <img id="properties-value-img" src="img/1.png" alt="">
-                        </div>
-                    </div>
-                    <div class="properties_item">
-                        <div class="properties_title">Горечь</div>
-                        <div class="properties_value">
-                            <img id="properties-value-img" src="img/3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="properties_item">
-                        <div class="properties_title">Полнотелость</div>
-                        <div class="properties_value">
-                            <img id="properties-value-img" src="img/3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="cost">
-                        <div class="cost_value">490₽</div>
-                    </div>
-                    <ul class="weight" data-number="1">
-                        <li class="border-checked">250 гр</li>
-                        <li class="item">500 гр</li>
-                        <li class="item">1000 гр</li>
-                    </ul>
-                    <select id="Combobox">
-                        <option id="Combobox_item" value="">Без помола (В зернах)</option>
-                        <option id="Combobox_item" value="">Для аэропресса</option>
-                        <option id="Combobox_item" value="">Для гейзерной кофеварки</option>
-                        <option id="Combobox_item" value="">Для капельной кофеварки</option>
-                    </select>
-                    <div class="container">
-                        <div class="counter_block">
-                            <span onclick="decrementClick()" class="minus">
-                                <h3>-</h3>
-                            </span>
-                            <span class="text">
-                                <h3 id="text-value">0</h3>
-                            </span>
-                            <span onclick="incrementClick()" class="plus">
-                                <h3>+</h3>
-                            </span>
-                        </div>
-                        <div class="button_block">
-                            <h3 id="button_block_text">В корзину</h3>
-                        </div>
+        <div class="moblie-main">
+            <div class="main-container-main">
+                <div class="top_block">
+                    <h3>Лучшие предложения</h3>
+                    <div class="right_side_top_block">
+                        <ul class="top_block_tabs">
+                            <a href="">
+                                <li id="top_block_tabs_checked">Хит</li>
+                            </a>
+                            <a href="">
+                                <li>Советуем</li>
+                            </a>
+                            <a href="">
+                                <li>Новинка</li>
+                            </a>
+                            <a href="">
+                                <li>Акция</li>
+                            </a>
+                        </ul>
                     </div>
                 </div>
-            </li>
-        </ul>
+                <?php
+                $sql = mysqli_query($connect, "SELECT * FROM `goods`");
+                $products = array();
+                while ($result = mysqli_fetch_array($sql)) {
+                    $products[] = $result;
+                }
+                ?>
+                <ul class="goods_list">
+                    <? foreach ($products as $product) : ?>
+                        <li class="goods-list-item">
+                            <img id="milk_blend_img" src=<?= $product['img'] ?> alt="">
+                            <div class="properties">
+                                <h3>
+                                    <?= $product['name'] ?>
+                                </h3>
+                                <div class="properties_item">
+                                    <div class="properties_title">Тип обжарки</div>
+                                    <div class="properties_value">
+                                        <?= $product['type_obz'] ?>
+                                    </div>
+                                </div>
+                                <div class="properties_item">
+                                    <div class="properties_title">Кислотность</div>
+                                    <div class="properties_value">
+                                        <img id="properties-value-img" src=<?= $product['kislot'] ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="properties_item">
+                                    <div class="properties_title">Горечь</div>
+                                    <div class="properties_value">
+                                        <img id="properties-value-img" src=<?= $product['gorech'] ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="properties_item">
+                                    <div class="properties_title">Полнотелость</div>
+                                    <div class="properties_value">
+                                        <img id="properties-value-img" src=<?= $product['poln'] ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="cost">
+                                    <div class="cost_value">
+                                        <?= $product['cost'] ?>₽
+                                    </div>
+                                </div>
+                                <ul class="weight">
+                                    <li data-id="<?= $product['id'] ?>" class="border-checked">250 гр</li>
+                                    <li data-id="<?= $product['id'] ?>" class="item">500 гр</li>
+                                    <li data-id="<?= $product['id'] ?>" class="item">1000 гр</li>
+                                </ul>
+                                <select id="Combobox">
+                                    <option id="Combobox_item" value="">Без помола (В зернах)</option>
+                                    <option id="Combobox_item" value="">Для аэропресса</option>
+                                    <option id="Combobox_item" value="">Для гейзерной кофеварки</option>
+                                    <option id="Combobox_item" value="">Для капельной кофеварки</option>
+                                </select>
+                                <div class="container">
+                                    <div class="counter_block">
+                                        <span data-name="minus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="minus">
+                                            <h3>-</h3>
+                                        </span>
+                                        <span class="text">
+                                            <h3 class="text-value" data-name="count<?= $product['id'] ?>">0</h3>
+                                        </span>
+                                        <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="plus">
+                                            <h3>+</h3>
+                                        </span>
+                                    </div>
+                                    <div class="button_block">
+                                        <h3 id="button_block_text">В корзину</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <? endforeach ?>
+                </ul>
+                <div class="more">
+                    <h4 id="more_text">Загрузить еще</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div class="main-container-header">
+            <ul class="wrapper-list">
+                <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
+                    <path data-name="Rounded Rectangle 81 copy 4" class="cls-1" d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z" transform="translate(-863 -946)"></path>
+                </svg>
+                <div class="header-logo-container">
+                    <img id="logo" src="img/logo_small.png" alt="">
+                </div>
+                <div class="nav-scrolled">
+                    <ul class="nav-bar-scrolled">
+                        <li class="nav-bar-item nav-bar-item-coffee">
+                            <a href="">
+                                Кофе
+                                <ul class="sub-menu">
+                                    <a href="">
+                                        <li id="sub-menu-item">Ароматизированный кофе</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Кофейные смеси</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Моносорта</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Спешалити</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Ферментированный кофе</li>
+                                    </a>
+                                </ul>
+                            </a>
+                        </li>
+                        <li class="nav-bar-item nav-bar-item-coffee">
+                            <a href="">
+                                Чай
+                                <ul class="sub-menu">
+                                    <a href="">
+                                        <li id="sub-menu-item">Белый</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Зеленый</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Пуэр</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Травяной</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Улун</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="sub-menu-item">Черный</li>
+                                    </a>
+                                </ul>
+                            </a>
+                        </li>
+                        <a href="">
+                            <li class="nav-bar-item">акции</li>
+                        </a>
+                        <a href="">
+                            <li class="nav-bar-item">как купить</li>
+                        </a>
+                        <a href="">
+                            <li class="nav-bar-item">о компании</li>
+                        </a>
+                        <a href="">
+                            <li class="nav-bar-item">оптовикам</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="nav-menu">
+                    <a href="">
+                        <div id="search-scroll"></div>
+                    </a>
+                    <a href="">
+                        <div id="acc"></div>
+                    </a>
+                    <a href="">
+                        <div id="stat"></div>
+                    </a>
+                    <div class="stat_counter" id="nav-menu-item">
+                        0
+                    </div>
+                    <a href="">
+                        <div id="cart"></div>
+                    </a>
+                    <div class="cart_counter" id="nav-menu-item">
+                        0
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="main-container">
+        <header class="header">
+            <h1 id="phone">8 800 302-26-54</h1>
+            <div class="logo-container">
+                <img id="logo" src="img/logo_small.png" alt="">
+            </div>
+            <div class="nav-menu">
+                <a href="">
+                    <div id="search" id="nav-menu-item"></div>
+                </a>
+                <a href="">
+                    <div id="acc" id="nav-menu-item"></div>
+                </a>
+                <a href="">
+                    <div id="stat"></div>
+                </a>
+                <div class="stat_counter" id="nav-menu-item">
+                    0
+                </div>
+                <a href="">
+                    <div id="cart" id="nav-menu-item"></div>
+                </a>
+                <div class="cart_counter" id="nav-menu-item">
+                    0
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul class="nav-bar">
+                <li class="nav-bar-item nav-bar-item-coffee">
+                    <a href="">
+                        Кофе
+                        <ul class="sub-menu">
+                            <a href="">
+                                <li id="sub-menu-item">Ароматизированный кофе</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Кофейные смеси</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Моносорта</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Спешалити</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Ферментированный кофе</li>
+                            </a>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-bar-item nav-bar-item-coffee">
+                    <a href="">
+                        Чай
+                        <ul class="sub-menu">
+                            <a href="">
+                                <li id="sub-menu-item">Белый</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Зеленый</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Пуэр</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Травяной</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Улун</li>
+                            </a>
+                            <a href="">
+                                <li id="sub-menu-item">Черный</li>
+                            </a>
+                        </ul>
+                    </a>
+                </li>
+                <a href="">
+                    <li class="nav-bar-item">акции</li>
+                </a>
+                <a href="">
+                    <li class="nav-bar-item">как купить</li>
+                </a>
+                <a href="">
+                    <li class="nav-bar-item">о компании</li>
+                </a>
+                <a href="">
+                    <li class="nav-bar-item">оптовикам</li>
+                </a>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <div class="main-container">
+        <span id="bcg_preview">
+            <img id="bcg_preview_img" src="img/bcg_preview.jpg" alt="">
+        </span>
+    </div>
+    <aside>
+        <div class="main-container-aside-bar">
+            <ul class="aside_bar">
+                <li class="aside-bar-item">
+                    <img id="Free_shipping_img" src="img/Free_shipping.png" alt="">
+                    <h2 id="Free_shipping_text">Бесплатная доставка</h2>
+                    <p id="Free_shipping_text">Уменьшим стоимость доставки товара <br> на 15% от стоимости заказа
+                    </p>
+                </li>
+                <li class="aside-bar-item">
+                    <img id="payment_img" src="img/payment.png" alt="">
+                    <h2 id="Free_shipping_text">Оплата при получении</h2>
+                    <p id="Free_shipping_text">Платите только тогда, когда <br> забрали посылку</p>
+                </li>
+                <li class="aside-bar-item">
+                    <img id="gift_img" src="img/gift.png" alt="">
+                    <h2 id="Free_shipping_text">Чай в подарок</h2>
+                    <p id="Free_shipping_text">Фирменная чайная смесь в подарок <br> при заказе от 3 000 ₽</p>
+                </li>
+                <li class="aside-bar-item">
+                    <img id="discount_img" src="img/discount.png" alt="">
+                    <h2 id="Free_shipping_text">Система скидок</h2>
+                    <p id="Free_shipping_text">Действует накопительная система <br> скидок от суммы заказа</p>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <div class="main-container-main">
+            <div class="top_block">
+                <h3>Лучшие предложения</h3>
+                <div class="right_side_top_block">
+                    <ul class="top_block_tabs">
+                        <a href="">
+                            <li id="top_block_tabs_checked">Хит</li>
+                        </a>
+                        <a href="">
+                            <li>Советуем</li>
+                        </a>
+                        <a href="">
+                            <li>Новинка</li>
+                        </a>
+                        <a href="">
+                            <li>Акция</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <?php
+            $sql = mysqli_query($connect, "SELECT * FROM `goods`");
+            $products = array();
+            while ($result = mysqli_fetch_array($sql)) {
+                $products[] = $result;
+            }
+            ?>
+            <div class="lox">
+                <ul class="goods_list">
+                    <? foreach ($products as $product) : ?>
+                        <li class="goods-list-item">
+                            <img id="milk_blend_img" src=<?= $product['img'] ?> alt="">
+                            <div class="properties">
+                                <h3>
+                                    <?= $product['name'] ?>
+                                </h3>
+                                <div class="properties_item">
+                                    <div class="properties_title">Тип обжарки</div>
+                                    <div class="properties_value">
+                                        <?= $product['type_obz'] ?>
+                                    </div>
+                                </div>
+                                <div class="properties_item">
+                                    <div class="properties_title">Кислотность</div>
+                                    <div class="properties_value">
+                                        <img id="properties-value-img" src=<?= $product['kislot'] ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="properties_item">
+                                    <div class="properties_title">Горечь</div>
+                                    <div class="properties_value">
+                                        <img id="properties-value-img" src=<?= $product['gorech'] ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="properties_item">
+                                    <div class="properties_title">Полнотелость</div>
+                                    <div class="properties_value">
+                                        <img id="properties-value-img" src=<?= $product['poln'] ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="cost">
+                                    <div class="cost_value">
+                                        <?= $product['cost'] ?>₽
+                                    </div>
+                                </div>
+                                <ul class="weight">
+                                    <li data-id="<?= $product['id'] ?>" class="border-checked">250 гр</li>
+                                    <li data-id="<?= $product['id'] ?>" class="item">500 гр</li>
+                                    <li data-id="<?= $product['id'] ?>" class="item">1000 гр</li>
+                                </ul>
+                                <select id="Combobox">
+                                    <option id="Combobox_item" value="">Без помола (В зернах)</option>
+                                    <option id="Combobox_item" value="">Для аэропресса</option>
+                                    <option id="Combobox_item" value="">Для гейзерной кофеварки</option>
+                                    <option id="Combobox_item" value="">Для капельной кофеварки</option>
+                                </select>
+                                <div class="container">
+                                    <div class="counter_block">
+                                        <span data-name="minus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="minus">
+                                            <h3>-</h3>
+                                        </span>
+                                        <span class="text">
+                                            <h3 class="text-value" data-name="count<?= $product['id'] ?>">0</h3>
+                                        </span>
+                                        <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="plus">
+                                            <h3>+</h3>
+                                        </span>
+                                    </div>
+                                    <div class="button_block">
+                                        <h3 id="button_block_text">В корзину</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <? endforeach ?>
+                </ul>
+            </div>
+        </div>
         <div class="more">
             <h4 id="more_text">Загрузить еще</h4>
         </div>
     </main>
     <footer>
-        <div class="width">
+        <div class="main-container-footer">
             <ul class="footer-items">
                 <li>2024 © интернет-магазин кофе shop.to.coffee</li>
                 <li>
@@ -247,8 +528,8 @@
                     </ul>
                 </li>
             </ul>
-        </div>
     </footer>
+    </div>
     <script src="main_page.js"></script>
 </body>
 
