@@ -2,26 +2,16 @@ let log = console.log, counterVal = 0;
 
 // Анимации для выбора веса
 
-const listID = document.querySelectorAll('[data-id]');
-let tmp, list;
-const listItem = document.querySelectorAll(".weight li").forEach(function (test) {
-    test.addEventListener("click", function () {
-        for (let elem of listID) {
-            if (elem.dataset.id == test.dataset.id) {
-                tmp = elem.dataset.id;
-                document.querySelectorAll(`.weight li[data-id="${tmp}"]`).forEach(item => {
-                    item.addEventListener('click', (e) => {
-                        document.querySelectorAll(`.weight li[data-id="${tmp}"]`).forEach(el => {
-                            el.classList.remove('border-checked');
-                        });
-                        item.classList.add('border-checked')
-                    })
-                })
-            }
-        }
+let item = document.querySelectorAll('.item');
+for (items of item) {
+    items.addEventListener('click', function () {
+        let weight = this.closest('.weight');
+        weight.querySelectorAll('.item').forEach(el => {
+            el.classList.remove('border-checked')
+            this.classList.add('border-checked');
+        })
     })
-})
-
+}
 
 // Счётчик
 
@@ -49,7 +39,7 @@ let wrapper = document.getElementById('wrapper').classList,
     logoScroll = document.getElementById('logo').classList;
 
 window.addEventListener('scroll', e => {
-    log(scrollY);
+    // log(scrollY);
     if (scrollY > 200) {
         wrapper.add('scrolled')
         logoScroll.add('logo-scroll')
@@ -58,3 +48,14 @@ window.addEventListener('scroll', e => {
         logoScroll.remove('logo-scroll')
     }
 });
+
+// отправка товара в корзину
+
+let btns = document.querySelectorAll('.button_block');
+for (btn of btns) {
+    btn.addEventListener('click', function () {
+        let block = this.closest('.container')
+        let text = block.querySelector('.text-value').innerText
+        alert(text)
+    })
+}

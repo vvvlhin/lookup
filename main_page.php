@@ -429,7 +429,7 @@ include_once("connect.php");
             ?>
             <ul class="goods_list">
                 <? foreach ($products as $product) : ?>
-                    <li class="goods-list-item">
+                    <li class="goods-list-item" data-code="<?= $product['Code_tovar'] ?>">
                         <img id="milk_blend_img" src=<?= $product['Name_img'] ?> alt="">
                         <div class="properties">
                             <h3>
@@ -465,7 +465,7 @@ include_once("connect.php");
                                 </div>
                             </div>
                             <ul class="weight">
-                                <li data-id="<?= $product['Code_tovar'] ?>" class="border-checked">250 гр</li>
+                                <li data-id="<?= $product['Code_tovar'] ?>" class="item border-checked">250 гр</li>
                                 <li data-id="<?= $product['Code_tovar'] ?>" class="item">500 гр</li>
                                 <li data-id="<?= $product['Code_tovar'] ?>" class="item">1000 гр</li>
                             </ul>
@@ -481,7 +481,7 @@ include_once("connect.php");
                                         <h3>-</h3>
                                     </span>
                                     <span class="text">
-                                        <h3 class="text-value" data-name="count<?= $product['id'] ?>">0</h3>
+                                        <h3 data-text="<?= $product['id'] ?>" class="text-value">0</h3>
                                     </span>
                                     <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="plus">
                                         <h3>+</h3>
