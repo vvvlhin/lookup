@@ -420,82 +420,81 @@ include_once("connect.php");
                 </div>
             </div>
             <?php
-            $sql = mysqli_query($connect, "SELECT * FROM `goods`");
+            $sql = mysqli_query($connect, "SELECT Tovar.Code_tovar, Tovar.Name_tovar, card_img.Name_img, group_tovar.name_group, type_obzharki.Name_type_obz, k.img_rate AS K, g.img_rate AS G, p.img_rate AS P, cost250, cost500, cost1000
+            FROM Tovar INNER JOIN card_img ON Tovar.image = card_img.Code_img INNER JOIN group_tovar ON Tovar.Groups_tovar = group_tovar.Code_group_tovar INNER JOIN type_obzharki ON Tovar.Type_obz = type_obzharki.Code_type INNER JOIN rate k ON k.Code_rate = Tovar.Kisl INNER JOIN rate g ON g.Code_rate = Tovar.gorech INNER JOIN rate p ON p.Code_rate = Tovar.polnotel;");
             $products = array();
             while ($result = mysqli_fetch_array($sql)) {
                 $products[] = $result;
             }
             ?>
-            <div class="lox">
-                <ul class="goods_list">
-                    <? foreach ($products as $product) : ?>
-                        <li class="goods-list-item">
-                            <img id="milk_blend_img" src=<?= $product['img'] ?> alt="">
-                            <div class="properties">
-                                <h3>
-                                    <?= $product['name'] ?>
-                                </h3>
-                                <div class="properties_item">
-                                    <div class="properties_title">Тип обжарки</div>
-                                    <div class="properties_value">
-                                        <?= $product['type_obz'] ?>
-                                    </div>
-                                </div>
-                                <div class="properties_item">
-                                    <div class="properties_title">Кислотность</div>
-                                    <div class="properties_value">
-                                        <img id="properties-value-img" src=<?= $product['kislot'] ?> alt="">
-                                    </div>
-                                </div>
-                                <div class="properties_item">
-                                    <div class="properties_title">Горечь</div>
-                                    <div class="properties_value">
-                                        <img id="properties-value-img" src=<?= $product['gorech'] ?> alt="">
-                                    </div>
-                                </div>
-                                <div class="properties_item">
-                                    <div class="properties_title">Полнотелость</div>
-                                    <div class="properties_value">
-                                        <img id="properties-value-img" src=<?= $product['poln'] ?> alt="">
-                                    </div>
-                                </div>
-                                <div class="cost">
-                                    <div class="cost_value">
-                                        <?= $product['cost'] ?>₽
-                                    </div>
-                                </div>
-                                <ul class="weight">
-                                    <li data-id="<?= $product['id'] ?>" class="border-checked">250 гр</li>
-                                    <li data-id="<?= $product['id'] ?>" class="item">500 гр</li>
-                                    <li data-id="<?= $product['id'] ?>" class="item">1000 гр</li>
-                                </ul>
-                                <select id="Combobox">
-                                    <option id="Combobox_item" value="">Без помола (В зернах)</option>
-                                    <option id="Combobox_item" value="">Для аэропресса</option>
-                                    <option id="Combobox_item" value="">Для гейзерной кофеварки</option>
-                                    <option id="Combobox_item" value="">Для капельной кофеварки</option>
-                                </select>
-                                <div class="container">
-                                    <div class="counter_block">
-                                        <span data-name="minus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="minus">
-                                            <h3>-</h3>
-                                        </span>
-                                        <span class="text">
-                                            <h3 class="text-value" data-name="count<?= $product['id'] ?>">0</h3>
-                                        </span>
-                                        <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="plus">
-                                            <h3>+</h3>
-                                        </span>
-                                    </div>
-                                    <div class="button_block">
-                                        <h3 id="button_block_text">В корзину</h3>
-                                    </div>
+            <ul class="goods_list">
+                <? foreach ($products as $product) : ?>
+                    <li class="goods-list-item">
+                        <img id="milk_blend_img" src=<?= $product['Name_img'] ?> alt="">
+                        <div class="properties">
+                            <h3>
+                                <?= $product['Name_tovar'] ?>
+                            </h3>
+                            <div class="properties_item">
+                                <div class="properties_title">Тип обжарки</div>
+                                <div class="properties_value">
+                                    <?= $product['type_obz'] ?>
                                 </div>
                             </div>
-                        </li>
-                    <? endforeach ?>
-                </ul>
-            </div>
+                            <div class="properties_item">
+                                <div class="properties_title">Кислотность</div>
+                                <div class="properties_value">
+                                    <img id="properties-value-img" src=<?= $product['K'] ?> alt="">
+                                </div>
+                            </div>
+                            <div class="properties_item">
+                                <div class="properties_title">Горечь</div>
+                                <div class="properties_value">
+                                    <img id="properties-value-img" src=<?= $product['G'] ?> alt="">
+                                </div>
+                            </div>
+                            <div class="properties_item">
+                                <div class="properties_title">Полнотелость</div>
+                                <div class="properties_value">
+                                    <img id="properties-value-img" src=<?= $product['P'] ?> alt="">
+                                </div>
+                            </div>
+                            <div class="cost">
+                                <div class="cost_value">
+                                    <?= $product['cost250'] ?>₽
+                                </div>
+                            </div>
+                            <ul class="weight">
+                                <li data-id="<?= $product['Code_tovar'] ?>" class="border-checked">250 гр</li>
+                                <li data-id="<?= $product['Code_tovar'] ?>" class="item">500 гр</li>
+                                <li data-id="<?= $product['Code_tovar'] ?>" class="item">1000 гр</li>
+                            </ul>
+                            <select id="Combobox">
+                                <option id="Combobox_item" value="">Без помола (В зернах)</option>
+                                <option id="Combobox_item" value="">Для аэропресса</option>
+                                <option id="Combobox_item" value="">Для гейзерной кофеварки</option>
+                                <option id="Combobox_item" value="">Для капельной кофеварки</option>
+                            </select>
+                            <div class="container">
+                                <div class="counter_block">
+                                    <span data-name="minus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="minus">
+                                        <h3>-</h3>
+                                    </span>
+                                    <span class="text">
+                                        <h3 class="text-value" data-name="count<?= $product['id'] ?>">0</h3>
+                                    </span>
+                                    <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="plus">
+                                        <h3>+</h3>
+                                    </span>
+                                </div>
+                                <div class="button_block">
+                                    <h3 id="button_block_text">В корзину</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <? endforeach ?>
+            </ul>
         </div>
         <div class="more">
             <h4 id="more_text">Загрузить еще</h4>

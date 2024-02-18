@@ -9,10 +9,9 @@ const listItem = document.querySelectorAll(".weight li").forEach(function (test)
         for (let elem of listID) {
             if (elem.dataset.id == test.dataset.id) {
                 tmp = elem.dataset.id;
-                list = document.querySelectorAll(`.weight li[data-id="${tmp}"]`)
-                list.forEach(item => {
+                document.querySelectorAll(`.weight li[data-id="${tmp}"]`).forEach(item => {
                     item.addEventListener('click', (e) => {
-                        list.forEach(el => {
+                        document.querySelectorAll(`.weight li[data-id="${tmp}"]`).forEach(el => {
                             el.classList.remove('border-checked');
                         });
                         item.classList.add('border-checked')
@@ -22,6 +21,7 @@ const listItem = document.querySelectorAll(".weight li").forEach(function (test)
         }
     })
 })
+
 
 // Счётчик
 
