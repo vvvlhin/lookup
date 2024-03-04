@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 18 2024 г., 17:33
+-- Время создания: Мар 01 2024 г., 11:53
 -- Версия сервера: 5.6.51
 -- Версия PHP: 7.2.34
 
@@ -49,7 +49,8 @@ INSERT INTO `card_img` (`Code_img`, `Name_img`) VALUES
 CREATE TABLE `cart` (
   `Code_cart` int(11) NOT NULL,
   `Code_order` int(11) NOT NULL,
-  `Code_tovara` int(11) NOT NULL
+  `Code_tovara` int(11) NOT NULL,
+  `quantity` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -238,7 +239,9 @@ ALTER TABLE `card_img`
 -- Индексы таблицы `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`Code_cart`);
+  ADD PRIMARY KEY (`Code_cart`),
+  ADD KEY `Code_order` (`Code_order`),
+  ADD KEY `Code_tovara` (`Code_tovara`);
 
 --
 -- Индексы таблицы `City`
@@ -262,7 +265,10 @@ ALTER TABLE `group_tovar`
 -- Индексы таблицы `Orders`
 --
 ALTER TABLE `Orders`
-  ADD PRIMARY KEY (`Code_orders`);
+  ADD PRIMARY KEY (`Code_orders`),
+  ADD KEY `Client` (`Client`),
+  ADD KEY `City` (`City`),
+  ADD KEY `shipping_method` (`shipping_method`);
 
 --
 -- Индексы таблицы `rate`
@@ -361,6 +367,21 @@ ALTER TABLE `type_obzharki`
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
+
+--
+-- Ограничения внешнего ключа таблицы `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`Code_order`) REFERENCES `Orders` (`Code_orders`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`Code_tovara`) REFERENCES `Tovar` (`Code_tovar`);
+
+--
+-- Ограничения внешнего ключа таблицы `Orders`
+--
+ALTER TABLE `Orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Client`) REFERENCES `clients` (`Code_clients`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`City`) REFERENCES `City` (`Code_city`),
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`shipping_method`) REFERENCES `shipping_method` (`Code_method`);
 
 --
 -- Ограничения внешнего ключа таблицы `Tovar`

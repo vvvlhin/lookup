@@ -7,8 +7,9 @@ include_once("connect.php");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="main_page.css">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="shortcut icon" href="https://shop.to.coffee/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,9 @@ include_once("connect.php");
     <div class="mobile-wrapper">
         <header class="mobile-header">
             <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
-                <path data-name="Rounded Rectangle 81 copy 4" class="cls-1" d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z" transform="translate(-863 -946)"></path>
+                <path data-name="Rounded Rectangle 81 copy 4" class="cls-1"
+                    d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z"
+                    transform="translate(-863 -946)"></path>
             </svg>
             <div class="logo-container">
                 <img id="logo" src="img/logo_small.png" alt="">
@@ -41,7 +44,7 @@ include_once("connect.php");
                     <div id="cart" class="nav-menu-item"></div>
                 </a>
                 <div class="cart_counter" id="mobile-nav-menu-item">
-                    0
+                    <span class="cart-counter-value">0</span>
                 </div>
             </div>
         </header>
@@ -98,15 +101,8 @@ include_once("connect.php");
                         </ul>
                     </div>
                 </div>
-                <?php
-                $sql = mysqli_query($connect, "SELECT * FROM `goods`");
-                $products = array();
-                while ($result = mysqli_fetch_array($sql)) {
-                    $products[] = $result;
-                }
-                ?>
                 <ul class="goods_list">
-                    <? foreach ($products as $product) : ?>
+                    <? foreach ($products as $product): ?>
                         <li class="goods-list-item">
                             <img id="milk_blend_img" src=<?= $product['img'] ?> alt="">
                             <div class="properties">
@@ -155,13 +151,15 @@ include_once("connect.php");
                                 </select>
                                 <div class="container">
                                     <div class="counter_block">
-                                        <span data-name="minus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="minus">
+                                        <span data-name="minus-btn<?= $product['id'] ?>" onclick="addHandlers()"
+                                            class="minus">
                                             <h3>-</h3>
                                         </span>
                                         <span class="text">
                                             <h3 class="text-value" data-name="count<?= $product['id'] ?>">0</h3>
                                         </span>
-                                        <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()" class="plus">
+                                        <span data-name="plus-btn<?= $product['id'] ?>" onclick="addHandlers()"
+                                            class="plus">
                                             <h3>+</h3>
                                         </span>
                                     </div>
@@ -183,7 +181,9 @@ include_once("connect.php");
         <div class="main-container-header">
             <ul class="wrapper-list">
                 <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
-                    <path data-name="Rounded Rectangle 81 copy 4" class="cls-1" d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z" transform="translate(-863 -946)"></path>
+                    <path data-name="Rounded Rectangle 81 copy 4" class="cls-1"
+                        d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z"
+                        transform="translate(-863 -946)"></path>
                 </svg>
                 <div class="header-logo-container">
                     <img id="logo" src="img/logo_small.png" alt="">
@@ -264,11 +264,11 @@ include_once("connect.php");
                     <div class="stat_counter" id="nav-menu-item">
                         0
                     </div>
-                    <a href="">
+                    <a href="cart.php">
                         <div id="cart"></div>
                     </a>
                     <div class="cart_counter" id="nav-menu-item">
-                        0
+                        <span class="cart-counter-value">0</span>
                     </div>
                 </div>
             </ul>
@@ -293,11 +293,11 @@ include_once("connect.php");
                 <div class="stat_counter" id="nav-menu-item">
                     0
                 </div>
-                <a href="">
+                <a href="cart.php">
                     <div id="cart" id="nav-menu-item"></div>
                 </a>
                 <div class="cart_counter" id="nav-menu-item">
-                    0
+                    <span class="cart-counter-value">0</span>
                 </div>
             </div>
         </header>
@@ -428,11 +428,16 @@ include_once("connect.php");
             }
             ?>
             <ul class="goods_list">
-                <? foreach ($products as $product) : ?>
+                <? foreach ($products as $product): ?>
+                    <?
+                    $c500 = $product['cost500'];
+                    $c1000 = $product['cost1000'];
+                    $c250 = $product['cost250'];
+                    ?>
                     <li class="goods-list-item" data-code="<?= $product['Code_tovar'] ?>">
                         <img id="milk_blend_img" src=<?= $product['Name_img'] ?> alt="">
                         <div class="properties">
-                            <h3>
+                            <h3 class="properties-name">
                                 <?= $product['Name_tovar'] ?>
                             </h3>
                             <div class="properties_item">
@@ -465,9 +470,9 @@ include_once("connect.php");
                                 </div>
                             </div>
                             <ul class="weight">
-                                <li data-id="<?= $product['Code_tovar'] ?>" class="item border-checked">250 гр</li>
-                                <li data-id="<?= $product['Code_tovar'] ?>" class="item">500 гр</li>
-                                <li data-id="<?= $product['Code_tovar'] ?>" class="item">1000 гр</li>
+                                <li data-weight="250" data-id="<?= $c250; ?>" class="item border-checked">250 гр</li>
+                                <li data-weight="500" data-id="<?= $c500; ?>" class="item">500 гр</li>
+                                <li data-weight="1000" data-id="<?= $c1000; ?>" class="item">1000 гр</li>
                             </ul>
                             <select id="Combobox">
                                 <option id="Combobox_item" value="">Без помола (В зернах)</option>
@@ -487,7 +492,7 @@ include_once("connect.php");
                                         <h3>+</h3>
                                     </span>
                                 </div>
-                                <div class="button_block">
+                                <div class="button_block" data-code="<?= $product['Code_tovar'] ?>">
                                     <h3 id="button_block_text">В корзину</h3>
                                 </div>
                             </div>
@@ -508,19 +513,25 @@ include_once("connect.php");
                     <ul class="footer-social-items">
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 5 11">
-                                <path data-name="Shape 51 copy 13" class="cls-1" d="M402.738,141a18.086,18.086,0,0,0,1.136,1.727,0.474,0.474,0,0,1-.144.735l-0.3.257a1,1,0,0,1-.805.279,4.641,4.641,0,0,1-1.491-.232,4.228,4.228,0,0,1-1.9-3.1,9.614,9.614,0,0,1,.025-4.3,4.335,4.335,0,0,1,1.934-3.118,4.707,4.707,0,0,1,1.493-.244,0.974,0.974,0,0,1,.8.272l0.3,0.255a0.481,0.481,0,0,1,.113.739c-0.454.677-.788,1.159-1.132,1.731a0.43,0.43,0,0,1-.557.181l-0.468-.061a0.553,0.553,0,0,0-.7.309,6.205,6.205,0,0,0-.395,2.079,6.128,6.128,0,0,0,.372,2.076,0.541,0.541,0,0,0,.7.3l0.468-.063a0.432,0.432,0,0,1,.555.175h0Z" transform="translate(-399 -133)"></path>
+                                <path data-name="Shape 51 copy 13" class="cls-1"
+                                    d="M402.738,141a18.086,18.086,0,0,0,1.136,1.727,0.474,0.474,0,0,1-.144.735l-0.3.257a1,1,0,0,1-.805.279,4.641,4.641,0,0,1-1.491-.232,4.228,4.228,0,0,1-1.9-3.1,9.614,9.614,0,0,1,.025-4.3,4.335,4.335,0,0,1,1.934-3.118,4.707,4.707,0,0,1,1.493-.244,0.974,0.974,0,0,1,.8.272l0.3,0.255a0.481,0.481,0,0,1,.113.739c-0.454.677-.788,1.159-1.132,1.731a0.43,0.43,0,0,1-.557.181l-0.468-.061a0.553,0.553,0,0,0-.7.309,6.205,6.205,0,0,0-.395,2.079,6.128,6.128,0,0,0,.372,2.076,0.541,0.541,0,0,0,.7.3l0.468-.063a0.432,0.432,0,0,1,.555.175h0Z"
+                                    transform="translate(-399 -133)"></path>
                             </svg>
                             <h3 id="phone-text">8 800 302-26-54</h3>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 11 11">
-                                <path data-name="Rectangle 583 copy 16" class="cls-1" d="M367,142h-7a2,2,0,0,1-2-2v-5a2,2,0,0,1,2-2h7a2,2,0,0,1,2,2v5A2,2,0,0,1,367,142Zm0-2v-3.039L364,139h-1l-3-2.036V140h7Zm-6.634-5,3.145,2.079L366.634,135h-6.268Z" transform="translate(-358 -133)"></path>
+                                <path data-name="Rectangle 583 copy 16" class="cls-1"
+                                    d="M367,142h-7a2,2,0,0,1-2-2v-5a2,2,0,0,1,2-2h7a2,2,0,0,1,2,2v5A2,2,0,0,1,367,142Zm0-2v-3.039L364,139h-1l-3-2.036V140h7Zm-6.634-5,3.145,2.079L366.634,135h-6.268Z"
+                                    transform="translate(-358 -133)"></path>
                             </svg>
                             <h3 id="phone-text">shop@to.coffee</h3>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 9 12">
-                                <path class="cls-1" d="M959.135,82.315l0.015,0.028L955.5,87l-3.679-4.717,0.008-.013a4.658,4.658,0,0,1-.83-2.655,4.5,4.5,0,1,1,9,0A4.658,4.658,0,0,1,959.135,82.315ZM955.5,77a2.5,2.5,0,0,0-2.5,2.5,2.467,2.467,0,0,0,.326,1.212l-0.014.022,2.181,3.336,2.034-3.117c0.033-.046.063-0.094,0.093-0.142l0.066-.1-0.007-.009a2.468,2.468,0,0,0,.32-1.2A2.5,2.5,0,0,0,955.5,77Z" transform="translate(-951 -75)"></path>
+                                <path class="cls-1"
+                                    d="M959.135,82.315l0.015,0.028L955.5,87l-3.679-4.717,0.008-.013a4.658,4.658,0,0,1-.83-2.655,4.5,4.5,0,1,1,9,0A4.658,4.658,0,0,1,959.135,82.315ZM955.5,77a2.5,2.5,0,0,0-2.5,2.5,2.467,2.467,0,0,0,.326,1.212l-0.014.022,2.181,3.336,2.034-3.117c0.033-.046.063-0.094,0.093-0.142l0.066-.1-0.007-.009a2.468,2.468,0,0,0,.32-1.2A2.5,2.5,0,0,0,955.5,77Z"
+                                    transform="translate(-951 -75)"></path>
                             </svg>
                             <h3 id="phone-text">г. Владимир, ул. Производственная Зона, 4</h3>
                         </li>
