@@ -1053,7 +1053,6 @@ textarea::-webkit-input-placeholder {
     font-size: 13px;
     font-weight: 400;
     color: #888888;
-    margin: 10px 0;
 }
 
 input[type=text]::placeholder {
@@ -1268,6 +1267,7 @@ input {
 
 .email-input {
     width: 500px;
+    margin: 9px 0 25px;
 }
 
 .basket-checkout-button {
@@ -1281,4 +1281,16 @@ input {
     font-weight: 400;
     cursor: pointer;
     width: 200px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+#message {
+    text-align: center;
+    color: #ff7f50;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    margin-bottom: 20px;
+
 }

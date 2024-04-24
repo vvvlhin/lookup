@@ -290,7 +290,50 @@ include_once ("../connect.php");
                         <a href="">
                             <div id="search-scroll"></div>
                         </a>
-                        <div id="acc"></div>
+                        <?php if (!empty($_SESSION['auth'])): ?>
+                            <ul class="profile-box">
+                                <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
+                                    <path data-name="Rounded Rectangle 803 copy" class="cls-1"
+                                        d="M933.5,961H922.469v0a2.486,2.486,0,0,1-1.848-4.13c0.018-.026.026-0.052,0.046-0.077,1.374-1.7,4.476-2.79,6.833-2.79h1c2.357,0,5.459,1.089,6.833,2.79,0.02,0.025.028,0.051,0.046,0.077A2.475,2.475,0,0,1,936,958.5,2.5,2.5,0,0,1,933.5,961Zm0.5-2.533h0a1.509,1.509,0,0,0-.619-0.9A10.224,10.224,0,0,0,928.5,956h-1a10.224,10.224,0,0,0-4.872,1.566,1.5,1.5,0,0,0-.619.9h0c0,0.01,0,.024,0,0.033a0.5,0.5,0,0,0,.5.5h11a0.5,0.5,0,0,0,.5-0.5C934,958.491,934,958.477,934,958.467ZM928,953a5,5,0,1,1,5-5A5,5,0,0,1,928,953Zm0-8a3,3,0,1,0,3,3A3,3,0,0,0,928,945Z"
+                                        transform="translate(-920 -943)"></path>
+                                </svg>
+                                <svg style=" padding: 5px 5px 5px 10px;" xmlns="http://www.w3.org/2000/svg" width="5"
+                                    height="3" viewBox="0 0 5 3">
+                                    <path class="cls-1" d="M250,80h5l-2.5,3Z" transform="translate(-250 -80)"></path>
+                                </svg>
+                                <ul class="profile-box-sub-menu">
+                                    <a href="">
+                                        <li id="profile-box-sub-menu-item">Мой кабинет</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="profile-box-sub-menu-item">Текущие заказы</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="profile-box-sub-menu-item">Личный счет</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="profile-box-sub-menu-item">Личные данные</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="profile-box-sub-menu-item">История заказов</li>
+                                    </a>
+                                    <a href="">
+                                        <li id="profile-box-sub-menu-item" onclick="exit()">
+                                            <i class="icons" style="padding-right: 10px;"><svg id="Exit.svg"
+                                                    xmlns="http://www.w3.org/2000/svg" width="12" height="9"
+                                                    viewBox="0 0 12 9">
+                                                    <path class="cls-1"
+                                                        d="M501.849,868.853l-2.011,1.993a0.485,0.485,0,0,1-.694,0,0.506,0.506,0,0,1,0-.707L500.293,869H494.5a0.5,0.5,0,0,1,0-1h5.826l-1.182-1.175a0.5,0.5,0,0,1,0-.7,0.487,0.487,0,0,1,.694,0l2.011,2a0.486,0.486,0,0,1,.138.365A0.492,0.492,0,0,1,501.849,868.853Zm-5.349-3.322a0.486,0.486,0,0,1-.269-0.089l-0.016.024a3.5,3.5,0,1,0,0,6.07l0,0a0.484,0.484,0,0,1,.287-0.1,0.5,0.5,0,0,1,.5.5,0.492,0.492,0,0,1-.242.418l0.008,0.012c-0.022.013-.049,0.018-0.071,0.031h0a4.434,4.434,0,0,1-2.194.6,4.5,4.5,0,1,1,0-9,4.4,4.4,0,0,1,2.057.542A0.5,0.5,0,0,1,496.5,865.531Z"
+                                                        transform="translate(-490 -864)"></path>
+                                                </svg></i>
+                                            Выйти
+                                        </li>
+                                    </a>
+                                </ul>
+                            </ul>
+                        <?php else: ?>
+                            <div id="acc"></div>
+                        <?php endif; ?>
                         <a href="">
                             <div id="stat"></div>
                         </a>
@@ -329,7 +372,7 @@ include_once ("../connect.php");
                                 <path class="cls-1" d="M250,80h5l-2.5,3Z" transform="translate(-250 -80)"></path>
                             </svg>
                             <ul class="profile-box-sub-menu">
-                                <a href="">
+                                <a href="../personal_account/personal_account.php">
                                     <li id="profile-box-sub-menu-item">Мой кабинет</li>
                                 </a>
                                 <a href="">
@@ -345,7 +388,7 @@ include_once ("../connect.php");
                                     <li id="profile-box-sub-menu-item">История заказов</li>
                                 </a>
                                 <a href="">
-                                    <li id="profile-box-sub-menu-item">
+                                    <li id="profile-box-sub-menu-item" onclick="exit()">
                                         <i class="icons" style="padding-right: 10px;"><svg id="Exit.svg"
                                                 xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9">
                                                 <path class="cls-1"
@@ -353,7 +396,6 @@ include_once ("../connect.php");
                                                     transform="translate(-490 -864)"></path>
                                             </svg></i>
                                         Выйти
-                                        <? unset($_SESSION['auth']) ?>
                                     </li>
                                 </a>
                             </ul>

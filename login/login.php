@@ -3,7 +3,7 @@ include_once ("../connect.php");
 session_start();
 if (!empty($_POST['password']) and !empty($_POST['login'])) {
     $login = $_POST['login'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $query = "SELECT * FROM clients WHERE login='$login' AND password='$password'";
     $res = mysqli_query($connect, $query);
     $user = mysqli_fetch_assoc($res);

@@ -251,15 +251,18 @@ include_once ("../connect.php");
             <li>Регистрация</li>
         </ul>
         <div class="email-wrapper">
-            <form class="email-form">
+            <form class="email-form" method="post">
+                <div id="message"></div>
                 <label id="email-input-label">Логин <span id="red">*</span></label>
-                <input type="text" class="email-input">
+                <input style="margin: 9px 0 0 0 !important;" type="text" class="email-input" id="input-access"
+                    name="login">
+                <label style="margin: 4px 0 21px 0 !important;" id="email-input-label" class="access"></label>
                 <label id="email-input-label">Пароль <span id="red">*</span></label>
-                <input type="password" class="email-input">
+                <input type="password" class="email-input" name="password">
+                <label id="email-input-label">Повторите пароль <span id="red">*</span></label>
+                <input type="password" class="email-input" name="confirm">
+                <input type="submit" class="basket-checkout-button" onsubmit="reg()" value="Регистрация">
             </form>
-            <button class="basket-checkout-button">
-                Регистрация
-            </button>
         </div>
     </div>
     <footer>
