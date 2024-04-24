@@ -1,6 +1,7 @@
 <?php
-include_once("connect.php");
+include_once ("../connect.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@ include_once("connect.php");
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="reg.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="shortcut icon" href="https://shop.to.coffee/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,23 +17,52 @@ include_once("connect.php");
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reset.css">
-    <script src="jquery-3.7.1.js"></script>
-    <title>Корзина</title>
+    <link rel="stylesheet" href="../reset.css">
+    <script src="../jquery-3.7.1.js"></script>
+    <title>TO.Coffee - интернет-магазин вкусного кофе</title>
 </head>
 
 <body>
+    <div class="auth">
+        <div class="main">
+            <div class="flex-main">
+                <h3 id="main-header-text">Личный кабинет</h3>
+                <div id="mdiv" onclick="closed()">
+                    <div class="mdiv">
+                        <div class="md"></div>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <h1 for="first">
+                    Введите логин, номер телефона или почту <span id="red">*</span>
+                </h1>
+                <input type="text" id="first" name="first" required>
+                <h1 for="password">
+                    Пароль <span id="red">*</span>
+                </h1>
+                <input type="password" id="password" name="password" required>
+                <div class="wrap">
+                    <button type="submit" onclick="solve()" class="sub">
+                        Вход
+                    </button>
+                </div>
+            </form>
+            <p class="href-text">Тут впервые?
+                <a href="../reg/reg.php" style="text-decoration: none; color:#0000ee;" class="href">
+                    Создайте аккаунт
+                </a>
+            </p>
+        </div>
+    </div>
     <div id="wrapper">
         <div class="main-container-header">
             <ul class="wrapper-list">
-                <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
-                    <path data-name="Rounded Rectangle 81 copy 4" class="cls-1"
-                        d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z"
-                        transform="translate(-863 -946)"></path>
-                </svg>
-                <div class="header-logo-container">
-                    <img id="logo" src="img/logo_small.png" alt="">
-                </div>
+                <a href="../main/index.php">
+                    <div class="header-logo-container">
+                        <img id="logo" src="../img/logo_small.png" alt="">
+                    </div>
+                </a>
                 <div class="nav-scrolled">
                     <ul class="nav-bar-scrolled">
                         <li class="nav-bar-item nav-bar-item-coffee">
@@ -100,51 +130,47 @@ include_once("connect.php");
                     <a href="">
                         <div id="search-scroll"></div>
                     </a>
-                    <a href="">
-                        <div id="acc"></div>
-                    </a>
+                    <div id="acc"></div>
                     <a href="">
                         <div id="stat"></div>
                     </a>
                     <div class="stat_counter" id="nav-menu-item">
                         0
                     </div>
-                    <a href="cart.php">
+                    <a href="../cart/cart.php">
                         <div id="cart"></div>
                     </a>
                     <div class="cart_counter" id="nav-menu-item">
-                        0
+                        <span class="cart-counter-value">0</span>
                     </div>
                 </div>
             </ul>
         </div>
     </div>
-    <div class="main-container">
+    <div class="main-container-head">
         <header class="header">
             <h1 id="phone">8 800 302-26-54</h1>
-            <a href="index.php">
+            <a href="../main/index.php">
                 <div class="logo-container">
-                    <img id="logo" src="img/logo_small.png" alt="">
+                    <img id="logo" src="../img/logo_small.png" alt="">
                 </div>
             </a>
             <div class="nav-menu">
                 <a href="">
                     <div id="search" id="nav-menu-item"></div>
                 </a>
-                <a href="">
-                    <div id="acc" id="nav-menu-item"></div>
-                </a>
+                <div id="acc" id="nav-menu-item"></div>
                 <a href="">
                     <div id="stat"></div>
                 </a>
                 <div class="stat_counter" id="nav-menu-item">
                     0
                 </div>
-                <a href="">
+                <a href="../cart/cart.php">
                     <div id="cart" id="nav-menu-item"></div>
                 </a>
                 <div class="cart_counter" id="nav-menu-item">
-                    0
+                    <span class="cart-counter-value">0</span>
                 </div>
             </div>
         </header>
@@ -213,71 +239,27 @@ include_once("connect.php");
         </nav>
     </div>
     <hr>
-    <div class="top-block-wrapper">
-        <div class="main-container">
-            <h1 class="pagetitle">Корзина</h1>
-            <ul class="navigation">
-                <li>Главная </li>
-                <li id="navigation-line"> — </li>
-                <li>Корзина</li>
-            </ul>
+    <div class="main-container">
+        <div class="top-block-wrapper">
+            <div id="top-block-wrapper-preview-text">Регистрация</div>
         </div>
-    </div>
-    <div class="main-container-cart">
-        <div class="main-container">
-            <div class="row">
-                <div class="basket-checkout-container">
-                    <div class="basket-coupon-section">
-                        <h4 class="basket-coupon-section-text">Введите код купона для скидки:</h4>
-                        <input class="basket-coupon-section-input" type="text">
-                    </div>
-                    <div class="basket-checkout-section-inner">
-                        <div>
-                            <div
-                                style="display: -ms-flexbox;display: -webkit-box;display: flex;-ms-flex-pack: end;-webkit-box-pack: end;justify-content: flex-end; align-items: center;">
-                                <div class="basket-checkout-block basket-checkout-block-total" style="padding-top: 0;">
-                                    <div class="basket-checkout-block-total-inner">
-                                        <div class="basket-checkout-block-total-title">Итого:</div>
-                                        <div class="basket-checkout-block-total-description"></div>
-                                    </div>
-                                </div>
-                                <div class="basket-checkout-block basket-checkout-block-total-price">
-                                    <div class="basket-checkout-block-total-price-inner">
-                                        <div class="basket-coupon-block-total-price-old">
-                                            0₽
-                                        </div>
-                                        <!-- <div class="basket-coupon-block-total-price-current"
-                                            data-entity="basket-total-price">
-                                            1&nbsp;215.50&nbsp;₽
-                                        </div> -->
-                                        <!-- <div class="basket-coupon-block-total-price-difference">
-                                            Экономия <span style="white-space: nowrap;">214.50&nbsp;₽</span>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="">Уменьшим стоимость доставки на 15%</div> -->
-                        </div>
-                        <div class="basket-checkout-block-btn">
-                            <a href="order.php">
-                                <button class="basket-checkout-button">
-                                    Оформить заказ
-                                </button>
-                            </a>
-                        </div>
-                        <div class="fastorder">
-                            <span class="btn-transparent-border-color">Быстрый заказ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main-cart">
-                <table class="basket-items-list-table">
-                    <tbody class="tbody">
-
-                    </tbody>
-                </table>
-            </div>
+        <ul class="navigation">
+            <li>Главная</li>
+            <li> — </li>
+            <li>Авторизация </li>
+            <li> — </li>
+            <li>Регистрация</li>
+        </ul>
+        <div class="email-wrapper">
+            <form class="email-form">
+                <label id="email-input-label">Логин <span id="red">*</span></label>
+                <input type="text" class="email-input">
+                <label id="email-input-label">Пароль <span id="red">*</span></label>
+                <input type="password" class="email-input">
+            </form>
+            <button class="basket-checkout-button">
+                Регистрация
+            </button>
         </div>
     </div>
     <footer>
@@ -315,8 +297,8 @@ include_once("connect.php");
             </ul>
     </footer>
     </div>
-    <!-- <script src="main_page.js"></script> -->
-    <script async src="cart.js"></script>
+    </div>
+    <script src="reg.js"></script>
 </body>
 
 </html>

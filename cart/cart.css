@@ -1,3 +1,25 @@
+body::-webkit-scrollbar {
+    height: 1px;
+    width: 1px;
+    /* ширина scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    height: 5px;
+    background: #fff;
+    /* цвет дорожки */
+}
+
+body::-webkit-scrollbar-thumb {
+    height: 5px;
+    background-color: gray;
+    /* цвет плашки */
+    border-radius: 5px;
+    /* закругления плашки */
+    border: 2px solid ghostwhite;
+    /* padding вокруг плашки */
+}
+
 @media (max-width: 1455px) {
     .goods_list {
         justify-content: center;
@@ -221,6 +243,7 @@ main {
     margin: 0 auto;
     background: #fff;
     float: none;
+    margin-bottom: 40px;
 }
 
 .main-container-header {
@@ -320,7 +343,7 @@ main {
     height: 17px;
     flex-shrink: 0;
     align-self: center;
-    background: url(img/search.png);
+    background: url(../img/search.png);
 }
 
 #search-scroll {
@@ -329,19 +352,19 @@ main {
     flex-shrink: 0;
     align-self: center;
     margin-left: 31px;
-    background: url(img/search.png);
+    background: url(../img/search.png);
 }
 
 #search:hover {
-    background: url(img/search_hover.png);
+    background: url(../img/search_hover.png);
 }
 
 #search-scroll:hover {
-    background: url(img/search_hover.png);
+    background: url(../img/search_hover.png);
 }
 
 #acc {
-    background: url(img/acc.png);
+    background: url(../img/acc.png);
     width: 18px;
     height: 18px;
     flex-shrink: 0;
@@ -349,11 +372,11 @@ main {
 }
 
 #acc:hover {
-    background: url(img/acc_hover.png);
+    background: url(../img/acc_hover.png);
 }
 
 #stat {
-    background: url(img/stat.png);
+    background: url(../img/stat.png);
     width: 18px;
     height: 18px;
     flex-shrink: 0;
@@ -361,7 +384,7 @@ main {
 }
 
 #stat:hover {
-    background: url(img/stat_hover.png);
+    background: url(../img/stat_hover.png);
 }
 
 .stat_counter {
@@ -383,14 +406,14 @@ main {
 }
 
 #cart {
-    background: url(img/cart.png);
+    background: url(../img/cart.png);
     width: 19px;
     height: 16px;
     flex-shrink: 0;
 }
 
 #cart:hover {
-    background: url(img/cart_hover.png);
+    background: url(../img/cart_hover.png);
 }
 
 .cart_counter {
@@ -1033,6 +1056,7 @@ footer {
 
 .fastorder {
     padding: 5px 0 0 18px;
+    cursor: pointer;
 }
 
 .basket-checkout-button {
@@ -1044,6 +1068,7 @@ footer {
     color: #FFF;
     font-size: 14px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .btn-transparent-border-color {
@@ -1100,7 +1125,7 @@ footer {
 
 .basket-items-list-table {
     padding-bottom: 20px;
-    min-height: 300px;
+    min-height: 200px;
 }
 
 .basket-item-block-info {
@@ -1221,4 +1246,28 @@ footer {
 .basket-items-list-item-delete-hover:hover {
     cursor: pointer;
     color: #44a2d5;
+}
+
+#mdiv {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.mdiv {
+    height: 25px;
+    width: 2px;
+    margin-left: 12px;
+    background-color: black;
+    transform: rotate(45deg);
+    Z-index: 1;
+}
+
+.md {
+    height: 25px;
+    width: 2px;
+    background-color: black;
+    transform: rotate(90deg);
+    Z-index: 2;
 }

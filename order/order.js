@@ -46,10 +46,13 @@ function onChoose(wat) {
   shipPriceAll.innerText = Number(allPrice.slice(0, -1)) + Number(wat.price.slice(0, -3)) + "₽";
   document.querySelector('.description154').style.display = 'block';
   document.querySelector('.time').style.display = 'block';
+  window.localStorage.setItem("time", JSON.stringify(document.querySelector('.time').innerText));
   if (wat.term >= 2) {
     document.querySelector('.time').innerText = wat.term + " дня"
+    log(document.querySelector('.time').innerText);
   } else {
     document.querySelector('.time').innerText = wat.term + " дней"
+
   }
 }
 
@@ -78,10 +81,20 @@ function onCalculate(wat) {
 }
 
 
-//Общая стоимость товаров
+// фиксированное навигационное меню
+let wrapper = document.getElementById("wrapper").classList,
+  logoScroll = document.getElementById("logo").classList;
 
-document.querySelector('.ur-order-cost-value').innerText = allPrice;
-
+window.addEventListener("scroll", (e) => {
+  // log(scrollY);
+  if (scrollY > 200) {
+    wrapper.add("scrolled");
+    logoScroll.add("logo-scroll");
+  } else {
+    wrapper.remove("scrolled");
+    logoScroll.remove("logo-scroll");
+  }
+});
 
 // выбор способа доставки
 
@@ -91,28 +104,48 @@ for (let i = 0; i < value.length; i++) {
   value[i].onchange = testRadio;
 }
 
+
 function testRadio() {
-  document.querySelector('.ur-order-cost-ship-value').innerText = this.value;
-  shipPriceAll.innerText = '';
-  shipPriceAll.innerText = Number(allPrice.slice(0, -1)) + Number(this.value.slice(0, -1)) + "₽";
   if (this.value == '154₽') {
     document.querySelector('.order-ship-container-choose-post').style.display = 'block';
-    document.querySelector('#order-selection-container-header-display').style.display = 'none';
-    document.querySelector('.addressPVZ').style.display = 'block';
+    document.querySelector('.description354').style.display = 'none';
+    document.querySelector('.time2').style.display = 'none';
+    document.querySelector('.ur-oreder-total-value').innerText = Number(allPrice.slice(0, -1)) + "₽"
+    document.querySelector('.ur-order-cost-ship-value').innerText = 0 + "₽";
   } else
     if (this.value == '354₽') {
-      document.querySelector('.addressPVZ').style.display = 'none';
       document.querySelector('.order-ship-container-choose-post').style.display = 'none';
-      document.querySelector('#order-selection-container-header-display').style.display = 'block';
+      document.querySelector('.description354').style.display = 'block';
+      document.querySelector('.time2').style.display = 'block';
+      document.querySelector('.description154').style.display = 'none';
+      document.querySelector('.time').style.display = 'none';
+      document.querySelector('input[name=address]').value = '';
+      document.querySelector('.ur-order-cost-ship-value').innerText = 500 + "₽";
+      document.querySelector('.ur-oreder-total-value').innerText = Number(allPrice.slice(0, -1)) + 500 + "₽"
     }
 }
 
 //общая стоимость доставки
 
 
+document.querySelector('.ur-order-cost-value').innerText = allPrice;
 let shipPriceAll = document.querySelector('.ur-oreder-total-value');
+shipPriceAll.innerText = Number(allPrice.slice(0, -1)) + "₽";
 
-shipPriceAll.innerText = Number(allPrice.slice(0, -1)) + 154 + "₽";
+
+//тело корзины
 
 
-//печать чека
+$.ajax({
+  url: 'test.php',
+  type: 'POST',
+  data: { myarray: cart },
+  dataType: 'json',
+  success: function (json) {
+    if (json) {
+      $('#output').html(json);
+    }
+  }
+});
+
+

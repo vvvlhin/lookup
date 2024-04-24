@@ -1,5 +1,6 @@
-<?php session_start();
-include_once("connect.php");
+<?php
+session_start();
+include_once ("../connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,13 +14,12 @@ include_once("connect.php");
     <link rel="shortcut icon" href="https://shop.to.coffee/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href=https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="test_check.html">
     <script src="jquery-3.7.1.js"></script>
-    <script id="ISDEKscript" type="text/javascript" src="widget/widjet.js"></script>
+    <script id="ISDEKscript" type="text/javascript" src="../widget/widjet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -37,7 +37,7 @@ include_once("connect.php");
                         transform="translate(-863 -946)"></path>
                 </svg>
                 <div class="header-logo-container">
-                    <img id="logo" src="img/logo_small.png" alt="">
+                    <img id="logo" src="../img/logo_small.png" alt="">
                 </div>
                 <div class="nav-scrolled">
                     <ul class="nav-bar-scrolled">
@@ -115,7 +115,7 @@ include_once("connect.php");
                     <div class="stat_counter" id="nav-menu-item">
                         0
                     </div>
-                    <a href="cart.php">
+                    <a href="../cart/cart.php">
                         <div id="cart"></div>
                     </a>
                     <div class="cart_counter" id="nav-menu-item">
@@ -128,9 +128,9 @@ include_once("connect.php");
     <div class="main-container">
         <header class="header">
             <h1 id="phone">8 800 302-26-54</h1>
-            <a href="index.php">
+            <a href="../main/index.php">
                 <div class="logo-container">
-                    <img id="logo" src="img/logo_small.png" alt="">
+                    <img id="logo" src="../img/logo_small.png" alt="">
                 </div>
             </a>
             <div class="nav-menu">
@@ -146,7 +146,7 @@ include_once("connect.php");
                 <div class="stat_counter" id="nav-menu-item">
                     0
                 </div>
-                <a href="cart.php">
+                <a href="../cart/cart.php">
                     <div id="cart" id="nav-menu-item"></div>
                 </a>
                 <div class="cart_counter" id="nav-menu-item">
@@ -248,7 +248,7 @@ include_once("connect.php");
                     <div class="pandd">
                         <div class="order-ship-container">
                             <div class="order-ship-container-header">
-                                <img class="order-ship-container-ico" src="img/ship.png" alt="">
+                                <img class="order-ship-container-ico" src="../img/ship.png" alt="">
                                 <div class="order-ship-container-text">Способ доставки</div>
                             </div>
                             <ul class="order-ship-container-choose">
@@ -265,18 +265,19 @@ include_once("connect.php");
                                         выдачи</div>
                                     <!-- <input class="addressPVZ" type="text" name="address"> -->
                                 </div>
-                                <!-- <li class="order-ship-container-choose-item">
+                                <li class="order-ship-container-choose-item">
                                     <input type="radio" name="raz" id="kurer" value="354₽" />
                                     <span id="item-text">
                                         СДЭК (Курьером)
                                     </span>
-                                    <div class="description354">354₽</div>
-                                </li> -->
+                                    <div class="description354">+500₽</div>
+                                    <div class="time2"> 1-2 Дня</div>
+                                </li>
                             </ul>
                         </div>
                         <div class="pay-method">
                             <div class="pay-method-container-header">
-                                <img class="pay-method-container-ico" src="img/purse.png" alt="">
+                                <img class="pay-method-container-ico" src="../img/purse.png" alt="">
                                 <div class="pay-method-container-text">Способ оплаты</div>
                             </div>
                             <ul class="order-ship-container-choose">
@@ -297,20 +298,23 @@ include_once("connect.php");
                     </div>
                     <div class="clients-info">
                         <div class="clients-info-header">
-                            <img class="clients-info-header-img" src="img/stud.avif" alt="">
+                            <img class="clients-info-header-img" src="../img/stud.avif" alt="">
                             <div class="clients-info-header-text">Покупатель</div>
                         </div>
                         <?php
-                        // var_dump(isset($_POST["Name"]));
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-sub'])) {
+                        if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['btn-sub']))) {
                             $sql = mysqli_query($connect, "INSERT INTO `Orders` (`City`, `shipping_method`, `names`, `email`, `phone`, `Comment`) VALUES ('" . $_POST['address'] . "', '1', '" . $_POST['Name'] . "', '" . $_POST['email'] . "', '" . $_POST['phone'] . "', '" . $_POST['comment'] . "');");
-                            echo "<script>document.location.href='test_check.html';</script>";
-                        }
-                        $sql = "SELECT * FROM `Orders` ORDER BY Code_orders DESC LIMIT 1;";
-                        if ($result = $connect->query($sql)) {
-                            while ($row = $result->fetch_array()) {
-                                $userid = $row["Code_orders"];
-                                $_SESSION['userid'] = $userid;
+                            echo "<script>document.location = '../end-page/end_page.php' </script>";
+                            $sqli = "SELECT * FROM `Orders` ORDER BY Code_orders DESC LIMIT 1;";
+                            if ($result = $connect->query($sqli)) {
+                                while ($row = $result->fetch_array()) {
+                                    $userid = $row["Code_orders"];
+                                    $_SESSION['userid'] = $userid;
+                                }
+                            }
+                            echo $userid;
+                            foreach ($_SESSION['array'] as $key => $value) {
+                                $sql = mysqli_query($connect, "INSERT INTO `orders_body` (`id`, `id_zakaza`, `code_tovara`, `weight`, `quantity`, `cost`) VALUES (NULL, '" . $userid . "', '" . $value['code_tovara'] . "', '" . $value['weight'] . "', '" . $value['quantity'] . "', '" . $value['costCart'] . "');");
                             }
                         }
                         ?>
@@ -348,7 +352,7 @@ include_once("connect.php");
                 <div class="fixed-ticket">
                     <div class="ur-order">
                         <div class="ur-order-text">Ваш заказ</div>
-                        <a href="cart.php">
+                        <a href="../cart/cart.php">
                             <div class="ur-order-edit">Изменить</div>
                         </a>
                     </div>
@@ -368,6 +372,7 @@ include_once("connect.php");
                     </input>
                     </form>
                 </div>
+                <div id="output"></div>
             </div>
         </div>
         <footer>
@@ -405,7 +410,7 @@ include_once("connect.php");
                 </ul>
         </footer>
     </div>
-    <script async src="order.js"></script>
+    <script src="order.js"></script>
 </body>
 
 </html>

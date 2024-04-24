@@ -83,7 +83,15 @@ cart.forEach((menu) => {
                     ${total}₽
                 </td>
                 <td class="basket-items-list-item-delete">
-                    <h1 class="basket-items-list-item-delete-hover">Удалить</h1>
+                    <div class="basket-items-list-item-delete-hover">
+                    <div id="mdiv">
+                    <div class="mdiv">
+                        <div class="md"></div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                    </div>
                 </td>
                           </tr>
   `
@@ -182,8 +190,8 @@ for (items of item) {
   });
 }
 
-// удаление товара из корзины
 
+// удаление товара из корзины
 
 let del = document.querySelectorAll(".basket-items-list-item-delete-hover");
 
@@ -200,14 +208,27 @@ for (dels of del) {
     document.querySelector(".basket-coupon-block-total-price-old").innerText = totalAll + "₽";
     // log(basketContainer.getAttribute("data-key"))
     cart = cart.filter(num => num.code_tovara !== basketContainer.getAttribute("data-key"));
-    window.localStorage.setItem("totalCart", JSON.stringify(cart));
+    log(cart)
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+    document.querySelectorAll('.cart_counter').forEach(e => {
+      e.innerText--;
+    })
+    counter--;
+    window.localStorage.setItem("counter", JSON.stringify(counter));
   })
 }
-log(cart)
-window.localStorage.setItem("totalCart", JSON.stringify(cart));
 
 
 let allPrice = document.querySelector('.basket-coupon-block-total-price-old').innerText;
 
 window.localStorage.setItem("allPrice", JSON.stringify(allPrice));
+
+// отчистка корзины
+
+function deleteCart() {
+  cart = [], counter = 0;
+  window.localStorage.setItem("cart", JSON.stringify(cart));
+  window.localStorage.setItem("counter", JSON.stringify(counter));
+  location.reload(); return false;
+}
 

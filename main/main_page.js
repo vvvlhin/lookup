@@ -1,5 +1,11 @@
+let counter = JSON.parse(window.localStorage.getItem("counter")),
+  cart = [];
+cart = JSON.parse(window.localStorage.getItem("cart"));
+// cart = localStorage.getItem("cart");
+
 let log = console.log,
   counterVal = 0;
+
 
 // Анимации для выбора веса
 
@@ -58,8 +64,12 @@ window.addEventListener("scroll", (e) => {
 
 // отправка товара в корзину
 
+document.querySelectorAll('.cart-counter-value').forEach(e => {
+  e.innerText = counter;
+});
+
 let btns = document.querySelectorAll(".button_block"),
-  cart = [], costArr = [], counter = 0;
+  costArr = [];
 for (btn of btns) {
   btn.addEventListener("click", function () {
     counter++;
@@ -86,5 +96,38 @@ for (btn of btns) {
     };
     cart.push(cartItem);
     window.localStorage.setItem("cart", JSON.stringify(cart));
+    log(typeof (cart));
   });
 }
+
+// Регистрация/авторизация
+
+document.querySelectorAll('#acc').forEach(tmp => {
+  tmp.addEventListener("click", () => {
+    document.querySelector('.blur').style = "filter: blur(5px);";
+    document.querySelector('.main').style.display = "block";
+  })
+})
+
+function closed() {
+  document.querySelector('.blur').style = "filter: none;";
+  document.querySelector('.main').style.display = "none";
+}
+
+$("#form").on("submit", function () {
+  $.ajax({
+    url: '../login/login.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      if (data == 1) {
+        location.reload();
+      } else {
+        $('#message').html(data);
+      }
+    }
+  });
+  return false;
+});
+
