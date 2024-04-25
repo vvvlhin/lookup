@@ -302,7 +302,7 @@ include_once ("../connect.php");
                                     <path class="cls-1" d="M250,80h5l-2.5,3Z" transform="translate(-250 -80)"></path>
                                 </svg>
                                 <ul class="profile-box-sub-menu">
-                                    <a href="">
+                                    <a href="../personal_account/personal_account.php">
                                         <li id="profile-box-sub-menu-item">Мой кабинет</li>
                                     </a>
                                     <a href="">

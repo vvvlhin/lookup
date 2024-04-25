@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 21 2024 г., 16:10
+-- Время создания: Апр 25 2024 г., 09:38
 -- Версия сервера: 5.6.51
 -- Версия PHP: 7.2.34
 
@@ -59,15 +59,19 @@ CREATE TABLE `clients` (
   `surname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `names` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `patronymic` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `login` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `clients`
 --
 
-INSERT INTO `clients` (`Code_clients`, `surname`, `names`, `patronymic`, `phone`) VALUES
-(1, 'Волошин', 'Валентин', 'Олегович', '+79591918958');
+INSERT INTO `clients` (`Code_clients`, `surname`, `names`, `patronymic`, `phone`, `login`, `password`) VALUES
+(1, 'Волошин', 'Валентин', 'Олегович', '+79591918958', 'vvlhin', 'gg'),
+(2, '', '', '', '', 'Diablo', '123'),
+(4, '', '', '', '', 'dedossatack', '2f48d7ec9b719ba7eebef1ad940f38bf');
 
 -- --------------------------------------------------------
 
@@ -367,7 +371,7 @@ ALTER TABLE `card_img`
 -- AUTO_INCREMENT для таблицы `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `Code_clients` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Code_clients` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `group_tovar`
