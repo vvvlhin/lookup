@@ -474,6 +474,7 @@ main {
     display: flex;
     flex-direction: row;
     gap: 50px;
+    align-items: center;
 }
 
 .mobile-nav-menu {
@@ -1293,4 +1294,49 @@ input {
     font-size: 21px;
     margin-bottom: 20px;
 
+}
+
+.profile-box {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile-box:hover .profile-box-sub-menu {
+    display: block;
+    opacity: 1;
+}
+
+.profile-box-sub-menu {
+    display: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    position: absolute;
+    z-index: 100;
+    left: -40px;
+    background-color: #fff;
+    opacity: 0;
+    padding: 0px 0 0 0;
+    animation-name: slide-down;
+    animation-duration: 0.7s;
+    padding-top: 5px;
+}
+
+#profile-box-sub-menu-item {
+    text-wrap: nowrap;
+    padding: 20px 10px 20px 25px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-top: -1px;
+    width: 150px;
+    color: #222222;
+}
+
+#profile-box-sub-menu-item:hover {
+    background-color: #fafafa;
 }

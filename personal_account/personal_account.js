@@ -99,64 +99,28 @@ for (btn of btns) {
   });
 }
 
-// // Регистрация/авторизация
+$("#form").on("submit", function () {
+  $.ajax({
+    url: 'private_tmp.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      log(data);
+      document.querySelector('.alert-success').style.display = "block";
+    }
+  });
+  return false;
+});
 
-// document.querySelectorAll('#acc').forEach(tmp => {
-//   tmp.addEventListener("click", () => {
-//     document.querySelector('#wrapper').style = "filter: blur(5px);";
-//     document.querySelector('.main-container').style = "filter: blur(5px);";
-//     document.querySelector('.main-container-head').style = "filter: blur(5px);";
-//     document.querySelector('footer').style = "filter: blur(5px);";
-//     document.querySelector('.main').style.display = "block";
-//   })
-// })
-
-// function closed() {
-//   document.querySelector('#wrapper').style = "filter: none;";
-//   document.querySelector('.main-container').style = "filter: none;";
-//   document.querySelector('.main-container-head').style = "filter: none;";
-//   document.querySelector('footer').style = "filter: none;";
-//   document.querySelector('.main').style.display = "none";
-// }
-
-// $(".email-form").on("submit", function () {
-//   $.ajax({
-//     url: '../reg/reg_tmp.php',
-//     method: 'post',
-//     dataType: 'html',
-//     data: $(this).serialize(),
-//     success: function (data) {
-//       if (data == 1) {
-//         window.location.href = '../main/index.php';
-//       } else {
-//         if (data == 2) {
-//           $('.access').html(Логин);
-//         } else {
-//           $('#message').html(data);
-//         }
-//       }
-//     }
-//   });
-//   return false;
-// });
-
-
-// $(function () {
-//   $("#input-access").on("keyup", function () {
-//     var username = $(this).val();
-//     var usernameRegex = /^[a-zA-Z0-9]+$/;
-//     if (usernameRegex.test(username) && username != '' && username.length > 3) {
-//       $.ajax({
-//         url: '../reg/access.php',
-//         type: 'post',
-//         dataType: 'html',
-//         data: { login: username },
-//         success: function (response) {
-//           $('.access').html(response);
-//         }
-//       });
-//     } else {
-//       $(".access").html("<span style='color: red;'>Необходимо ввести валдиный логин (Больше 3 символов)</span>");
-//     }
-//   })
-// });
+let exit = () => {
+  $.ajax({
+    url: '../login/logout.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      window.location.replace("/")
+    }
+  });
+}

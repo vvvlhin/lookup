@@ -12,7 +12,7 @@ let log = console.log,
 let item = document.querySelectorAll(".item"),
   cost;
 for (items of item) {
-  items.addEventListener("click", function () {
+  items.addEventListener("click", function (e) {
     cost = this.getAttribute("data-id");
     let weight = this.closest(".weight"),
       properties = weight.closest(".properties");

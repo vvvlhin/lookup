@@ -160,3 +160,33 @@ $(function () {
     }
   })
 });
+
+$("#form").on("submit", function () {
+  $.ajax({
+    url: '../login/login.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      if (data == 1) {
+        location.reload();
+      } else {
+        $('#message').html(data);
+      }
+    }
+  });
+  return false;
+});
+
+
+let exit = () => {
+  $.ajax({
+    url: '../login/logout.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      console.log(data);
+    }
+  });
+}

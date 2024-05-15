@@ -232,3 +232,45 @@ function deleteCart() {
   location.reload(); return false;
 }
 
+//регистрация/авторизация
+
+document.querySelectorAll('#acc').forEach(tmp => {
+  tmp.addEventListener("click", () => {
+    document.querySelector('.blur').style = "filter: blur(5px);";
+    document.querySelector('.main').style.display = "block";
+  })
+})
+
+function closed() {
+  document.querySelector('.blur').style = "filter: none;";
+  document.querySelector('.main').style.display = "none";
+}
+
+$("#form").on("submit", function () {
+  $.ajax({
+    url: '../login/login.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      if (data == 1) {
+        location.reload();
+      } else {
+        $('#message').html(data);
+      }
+    }
+  });
+  return false;
+});
+
+let exit = () => {
+  $.ajax({
+    url: '../login/logout.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      console.log(data);
+    }
+  });
+}

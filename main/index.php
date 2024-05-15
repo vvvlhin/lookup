@@ -71,9 +71,6 @@ include_once ("../connect.php");
                         <div id="search" class="nav-menu-item"></div>
                     </a>
                     <div id="acc" class="nav-menu-item"></div>
-                    <?
-
-                    ?>
                     <a href="">
                         <div id="cart" class="nav-menu-item"></div>
                     </a>
@@ -139,11 +136,29 @@ include_once ("../connect.php");
                     <ul class="goods_list">
                         <? foreach ($products as $product): ?>
                             <li class="goods-list-item">
-                                <img id="milk_blend_img" src=<?= $product['img'] ?> alt="">
+                                <a href="../product_card/product_card.php?=<? $product['Code_tovar'] ?>">
+                                    <div class="spec">
+                                        <? if ($product['hit'] == '1'): ?>
+                                            <div class="hit">Хит</div>
+                                        <? endif ?>
+                                        <? if ($product['recommend'] == '1'): ?>
+                                            <div class="rec">Рекомендуем</div>
+                                        <? endif ?>
+                                        <? if ($product['new'] == '1'): ?>
+                                            <div class="new">Новинка</div>
+                                        <? endif ?>
+                                        <? if ($product['stock'] == '1'): ?>
+                                            <div class="stock">Акция</div>
+                                        <? endif ?>
+                                    </div>
+                                    <img id="milk_blend_img" src=<?= $product['img'] ?> alt="">
+                                </a>
                                 <div class="properties">
-                                    <h3>
-                                        <?= $product['name'] ?>
-                                    </h3>
+                                    <a href="../product_card/product_card.php?=<? $product['Code_tovar'] ?>">
+                                        <h3>
+                                            <?= $product['name'] ?>
+                                        </h3>
+                                    </a>
                                     <div class="properties_item">
                                         <div class="properties_title">Тип обжарки</div>
                                         <div class="properties_value">
@@ -308,10 +323,7 @@ include_once ("../connect.php");
                                     <a href="">
                                         <li id="profile-box-sub-menu-item">Текущие заказы</li>
                                     </a>
-                                    <a href="">
-                                        <li id="profile-box-sub-menu-item">Личный счет</li>
-                                    </a>
-                                    <a href="">
+                                    <a href="../personal_account/private.php">
                                         <li id="profile-box-sub-menu-item">Личные данные</li>
                                     </a>
                                     <a href="">
@@ -372,16 +384,13 @@ include_once ("../connect.php");
                                 <path class="cls-1" d="M250,80h5l-2.5,3Z" transform="translate(-250 -80)"></path>
                             </svg>
                             <ul class="profile-box-sub-menu">
-                                <a href="../personal_account/personal_account.php">
+                                <a href="../personal_account/personal_account.php?page=0">
                                     <li id="profile-box-sub-menu-item">Мой кабинет</li>
                                 </a>
                                 <a href="">
                                     <li id="profile-box-sub-menu-item">Текущие заказы</li>
                                 </a>
-                                <a href="">
-                                    <li id="profile-box-sub-menu-item">Личный счет</li>
-                                </a>
-                                <a href="">
+                                <a href="../personal_account/private.php">
                                     <li id="profile-box-sub-menu-item">Личные данные</li>
                                 </a>
                                 <a href="">
@@ -534,11 +543,14 @@ include_once ("../connect.php");
                             <a href="">
                                 <li>Акция</li>
                             </a>
+                            <a href="../catalog/index.php">
+                                <li style="letter-spacing: .8px;">ВЕСЬ КАТАЛОГ</li>
+                            </a>
                         </ul>
                     </div>
                 </div>
                 <?php
-                $sql = mysqli_query($connect, "SELECT Tovar.Code_tovar, Tovar.Name_tovar, card_img.Name_img, group_tovar.name_group, type_obzharki.Name_type_obz, k.img_rate AS K, g.img_rate AS G, p.img_rate AS P, cost250, cost500, cost1000
+                $sql = mysqli_query($connect, "SELECT Tovar.Code_tovar, Tovar.Name_tovar, card_img.Name_img, group_tovar.name_group, type_obzharki.Name_type_obz, k.img_rate AS K, g.img_rate AS G, p.img_rate AS P, cost250, cost500, cost1000, hit, new, stock, recommend
             FROM Tovar INNER JOIN card_img ON Tovar.image = card_img.Code_img INNER JOIN group_tovar ON Tovar.Groups_tovar = group_tovar.Code_group_tovar INNER JOIN type_obzharki ON Tovar.Type_obz = type_obzharki.Code_type INNER JOIN rate k ON k.Code_rate = Tovar.Kisl INNER JOIN rate g ON g.Code_rate = Tovar.gorech INNER JOIN rate p ON p.Code_rate = Tovar.polnotel;");
                 $products = array();
                 while ($result = mysqli_fetch_array($sql)) {
@@ -553,11 +565,29 @@ include_once ("../connect.php");
                         $c250 = $product['cost250'];
                         ?>
                         <li class="goods-list-item" data-code="<?= $product['Code_tovar'] ?>">
-                            <img id="milk_blend_img" src=<?= $product['Name_img'] ?> alt="">
+                            <a href="../product_card/product_card.php?t=<?= $product['Code_tovar'] ?>">
+                                <div class="spec">
+                                    <? if ($product['hit'] == '1'): ?>
+                                        <div class="hit">Хит</div>
+                                    <? endif ?>
+                                    <? if ($product['recommend'] == '1'): ?>
+                                        <div class="rec">Рекомендуем</div>
+                                    <? endif ?>
+                                    <? if ($product['new'] == '1'): ?>
+                                        <div class="new">Новинка</div>
+                                    <? endif ?>
+                                    <? if ($product['stock'] == '1'): ?>
+                                        <div class="stock">Акция</div>
+                                    <? endif ?>
+                                </div>
+                                <img id="milk_blend_img" src=<?= $product['Name_img'] ?> alt="">
+                            </a>
                             <div class="properties">
-                                <h3 class="properties-name">
-                                    <?= $product['Name_tovar'] ?>
-                                </h3>
+                                <a href="../product_card/product_card.php?t=<?= $product['Code_tovar'] ?>">
+                                    <h3 class="properties-name">
+                                        <?= $product['Name_tovar'] ?>
+                                    </h3>
+                                </a>
                                 <div class="properties_item">
                                     <div class="properties_title">Тип обжарки</div>
                                     <div class="properties_value">
@@ -588,7 +618,8 @@ include_once ("../connect.php");
                                     </div>
                                 </div>
                                 <ul class="weight">
-                                    <li data-weight="250" data-id="<?= $c250; ?>" class="item border-checked">250 гр</li>
+                                    <li data-weight="250" data-id="<?= $c250; ?>" class="item border-checked">250 гр
+                                    </li>
                                     <li data-weight="500" data-id="<?= $c500; ?>" class="item">500 гр</li>
                                     <li data-weight="1000" data-id="<?= $c1000; ?>" class="item">1000 гр</li>
                                 </ul>

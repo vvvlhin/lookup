@@ -1,19 +1,22 @@
 <?php
 session_start();
-include_once("connect.php");
+include_once ("../connect.php");
 if (isset($_POST['myarray'])) {
     $req = false;
     ob_start();
     echo '<pre>';
     $a = $_POST['myarray'];
     foreach ($a as $key => $value) {
-        // echo $key, ' ';
-        // print_r($value['name']);
-        // print_r($value['weight']);
-        // print_r($value['quantity']);
-        // print_r($value['costCart']);
-        // echo '<br>';
+        echo $key, ' ';
+        print_r($value['name']);
+        print_r($value['weight']);
+        print_r($value['quantity']);
+        echo '<br>';
+        print_r($value['costCart']);
+        echo '<br>';
+        $totalc += $value['costCart'] * $value['quantity'];
     }
+    $_SESSION['totalCostt'] = $totalc;
     // echo $_SESSION['userid'];
     echo '</pre>';
     error_reporting(E_ALL);

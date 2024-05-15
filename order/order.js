@@ -125,8 +125,37 @@ function testRadio() {
     }
 }
 
-//общая стоимость доставки
+//проверка на ошибки
 
+$(function () {
+  $(".order-selection-container-input").on("keyup", function () {
+    document.querySelector('#output').style.display = "none"
+  })
+})
+
+// $(".form").on("submit", function () {
+//   // event.preventDefault()
+//   $.ajax({
+//     url: 'order_tmp.php',
+//     method: 'post',
+//     dataType: 'html',
+//     data: $(this).serialize(),
+//     success: function (data) {
+//       if (data == 1) {
+//         document.location.reload();
+//         document.querySelector('#output').style.display = "none"
+
+//         // document.location.href = "../end-page/end_page.php"
+//       } else {
+//         $('#output').html(data);
+//         document.querySelector('#output').style.display = "flex"
+//       }
+//       log(data);
+//     }
+//   });
+//   return false;
+// });
+//общая стоимость доставки
 
 document.querySelector('.ur-order-cost-value').innerText = allPrice;
 let shipPriceAll = document.querySelector('.ur-oreder-total-value');
@@ -135,7 +164,6 @@ shipPriceAll.innerText = Number(allPrice.slice(0, -1)) + "₽";
 
 //тело корзины
 
-
 $.ajax({
   url: 'test.php',
   type: 'POST',
@@ -143,9 +171,52 @@ $.ajax({
   dataType: 'json',
   success: function (json) {
     if (json) {
+      log(json)
       $('#output').html(json);
     }
   }
 });
 
 
+//регистрация/авторизация
+
+document.querySelectorAll('#acc').forEach(tmp => {
+  tmp.addEventListener("click", () => {
+    document.querySelector('.blur').style = "filter: blur(5px);";
+    document.querySelector('.main').style.display = "block";
+  })
+})
+
+function closed() {
+  document.querySelector('.blur').style = "filter: none;";
+  document.querySelector('.main').style.display = "none";
+}
+
+$("#form").on("submit", function () {
+  $.ajax({
+    url: '../login/login.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      if (data == 1) {
+        location.reload();
+      } else {
+        $('#message').html(data);
+      }
+    }
+  });
+  return false;
+});
+
+let exit = (e) => {
+  $.ajax({
+    url: '../login/logout.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      console.log(data);
+    }
+  });
+}
