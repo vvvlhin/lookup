@@ -216,7 +216,7 @@ let exit = (e) => {
     dataType: 'html',
     data: $(this).serialize(),
     success: function (data) {
-      console.log(data);
+      location.reload();
     }
   });
 }

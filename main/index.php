@@ -58,25 +58,22 @@ include_once ("../connect.php");
     <div class="blur">
         <div class="mobile-wrapper">
             <header class="mobile-header">
-                <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
+                <!-- <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
                     <path data-name="Rounded Rectangle 81 copy 4" class="cls-1"
                         d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z"
                         transform="translate(-863 -946)"></path>
-                </svg>
+                </svg> -->
                 <div class="logo-container">
                     <img id="logo" src="../img/logo_small.png" alt="">
                 </div>
                 <div class="mobile-nav-menu">
-                    <a href="">
-                        <div id="search" class="nav-menu-item"></div>
-                    </a>
                     <div id="acc" class="nav-menu-item"></div>
                     <a href="">
                         <div id="cart" class="nav-menu-item"></div>
+                        <div class="cart_counter" id="mobile-nav-menu-item">
+                            <span class="cart-counter-value">0</span>
+                        </div>
                     </a>
-                    <div class="cart_counter" id="mobile-nav-menu-item">
-                        <span class="cart-counter-value">0</span>
-                    </div>
                 </div>
             </header>
             <div class="mobile-main-container">
@@ -221,90 +218,84 @@ include_once ("../connect.php");
                             </li>
                         <? endforeach ?>
                     </ul>
-                    <div class="more">
+                    <!-- <div class="more">
                         <h4 id="more_text">Загрузить еще</h4>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div id="wrapper">
             <div class="main-container-header">
                 <ul class="wrapper-list">
-                    <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
+                    <!-- <svg id="wrapper-list-hambugrer" width="16" height="12" viewBox="0 0 16 12">
                         <path data-name="Rounded Rectangle 81 copy 4" class="cls-1"
                             d="M872,958h-8a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1h0A1,1,0,0,1,872,958Zm6-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,953Zm0-5H864a1,1,0,0,1,0-2h14A1,1,0,0,1,878,948Z"
                             transform="translate(-863 -946)"></path>
-                    </svg>
+                    </svg> -->
                     <div class="header-logo-container">
                         <img id="logo" src="../img/logo_small.png" alt="">
                     </div>
                     <div class="nav-scrolled">
                         <ul class="nav-bar-scrolled">
                             <li class="nav-bar-item nav-bar-item-coffee">
-                                <a href="">
+                                <a href="../catalog/coffee/coffee.php">
                                     Кофе
                                     <ul class="sub-menu">
-                                        <a href="">
+                                        <a href="../catalog/coffee/flavored.php">
                                             <li id="sub-menu-item">Ароматизированный кофе</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/coffee/mixture.php">
                                             <li id="sub-menu-item">Кофейные смеси</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/coffee/Monosort.php">
                                             <li id="sub-menu-item">Моносорта</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/coffee/spec.php">
                                             <li id="sub-menu-item">Спешалити</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/coffee/ferment.php">
                                             <li id="sub-menu-item">Ферментированный кофе</li>
                                         </a>
                                     </ul>
                                 </a>
                             </li>
                             <li class="nav-bar-item nav-bar-item-coffee">
-                                <a href="">
+                                <a href="../catalog/tea/coffee.php">
                                     Чай
                                     <ul class="sub-menu">
-                                        <a href="">
+                                        <a href="../catalog/tea/white.php">
                                             <li id="sub-menu-item">Белый</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/tea/green.php">
                                             <li id="sub-menu-item">Зеленый</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/tea/puer.php">
                                             <li id="sub-menu-item">Пуэр</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/tea/trava.php">
                                             <li id="sub-menu-item">Травяной</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/tea/ulun.php">
                                             <li id="sub-menu-item">Улун</li>
                                         </a>
-                                        <a href="">
+                                        <a href="../catalog/tea/black.php">
                                             <li id="sub-menu-item">Черный</li>
                                         </a>
                                     </ul>
                                 </a>
                             </li>
-                            <a href="">
-                                <li class="nav-bar-item">акции</li>
-                            </a>
-                            <a href="">
+
+                            <a href="../../buy.php">
                                 <li class="nav-bar-item">как купить</li>
                             </a>
-                            <a href="">
+                            <a href="../../about.php">
                                 <li class="nav-bar-item">о компании</li>
                             </a>
-                            <a href="">
-                                <li class="nav-bar-item">оптовикам</li>
-                            </a>
+
                         </ul>
                     </div>
                     <div class="nav-menu">
-                        <a href="">
-                            <div id="search-scroll"></div>
-                        </a>
+
                         <?php if (!empty($_SESSION['auth'])): ?>
                             <ul class="profile-box">
                                 <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
@@ -346,18 +337,15 @@ include_once ("../connect.php");
                         <?php else: ?>
                             <div id="acc"></div>
                         <?php endif; ?>
-                        <a href="">
-                            <div id="stat"></div>
-                        </a>
-                        <div class="stat_counter" id="nav-menu-item">
-                            0
-                        </div>
+
+
                         <a href="../cart/cart.php">
-                            <div id="cart"></div>
+                            <div id="cart">
+                                <div class="cart_counter" id="nav-menu-item">
+                                    <span class="cart-counter-value">0</span>
+                                </div>
+                            </div>
                         </a>
-                        <div class="cart_counter" id="nav-menu-item">
-                            <span class="cart-counter-value">0</span>
-                        </div>
                     </div>
                 </ul>
             </div>
@@ -369,9 +357,6 @@ include_once ("../connect.php");
                     <img id="logo" src="../img/logo_small.png" alt="">
                 </div>
                 <div class="nav-menu">
-                    <a href="">
-                        <div id="search" id="nav-menu-item"></div>
-                    </a>
                     <?php if (!empty($_SESSION['auth'])): ?>
                         <ul class="profile-box">
                             <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
@@ -412,81 +397,74 @@ include_once ("../connect.php");
                     <?php else: ?>
                         <div id="acc" id="nav-menu-item"></div>
                     <?php endif; ?>
-                    <a href="">
-                        <div id="stat"></div>
-                    </a>
-                    <div class="stat_counter" id="nav-menu-item">
-                        0
-                    </div>
+
+
                     <a href="../cart/cart.php">
-                        <div id="cart" id="nav-menu-item"></div>
+                        <div id="cart" id="nav-menu-item">
+                            <div class="cart_counter" id="nav-menu-item">
+                                <span class="cart-counter-value">0</span>
+                            </div>
+                        </div>
                     </a>
-                    <div class="cart_counter" id="nav-menu-item">
-                        <span class="cart-counter-value">0</span>
-                    </div>
                 </div>
             </header>
             <nav>
                 <ul class="nav-bar">
                     <li class="nav-bar-item nav-bar-item-coffee">
-                        <a href="">
+                        <a href="../catalog/coffee/coffee.php">
                             Кофе
                             <ul class="sub-menu">
-                                <a href="">
+                                <a href="../catalog/coffee/flavored.php">
                                     <li id="sub-menu-item">Ароматизированный кофе</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/coffee/mixture.php">
                                     <li id="sub-menu-item">Кофейные смеси</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/coffee/Monosort.php">
                                     <li id="sub-menu-item">Моносорта</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/coffee/spec.php">
                                     <li id="sub-menu-item">Спешалити</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/coffee/ferment.php">
                                     <li id="sub-menu-item">Ферментированный кофе</li>
                                 </a>
                             </ul>
                         </a>
                     </li>
                     <li class="nav-bar-item nav-bar-item-coffee">
-                        <a href="">
+                        <a href="../catalog/tea/coffee.php">
                             Чай
                             <ul class="sub-menu">
-                                <a href="">
+                                <a href="../catalog/tea/white.php">
                                     <li id="sub-menu-item">Белый</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/tea/green.php">
                                     <li id="sub-menu-item">Зеленый</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/tea/puer.php">
                                     <li id="sub-menu-item">Пуэр</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/tea/trava.php">
                                     <li id="sub-menu-item">Травяной</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/tea/ulun.php">
                                     <li id="sub-menu-item">Улун</li>
                                 </a>
-                                <a href="">
+                                <a href="../catalog/tea/black.php">
                                     <li id="sub-menu-item">Черный</li>
                                 </a>
                             </ul>
                         </a>
                     </li>
-                    <a href="">
-                        <li class="nav-bar-item">акции</li>
-                    </a>
-                    <a href="">
+
+                    <a href="../../buy.php">
                         <li class="nav-bar-item">как купить</li>
                     </a>
-                    <a href="">
+                    <a href="../../about.php">
                         <li class="nav-bar-item">о компании</li>
                     </a>
-                    <a href="">
-                        <li class="nav-bar-item">оптовикам</li>
-                    </a>
+
                 </ul>
             </nav>
         </div>
@@ -652,9 +630,9 @@ include_once ("../connect.php");
                     <? endforeach ?>
                 </ul>
             </div>
-            <div class="more">
+            <!-- <div class="more">
                 <h4 id="more_text">Загрузить еще</h4>
-            </div>
+            </div> -->
         </main>
         <footer>
             <div class="main-container-footer">

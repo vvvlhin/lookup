@@ -66,7 +66,7 @@ include_once ("../connect.php");
                 <div class="nav-scrolled">
                     <ul class="nav-bar-scrolled">
                         <li class="nav-bar-item nav-bar-item-coffee">
-                            <a href="">
+                            <a href="../catalog/coffee/coffee.php">
                                 Кофе
                                 <ul class="sub-menu">
                                     <a href="">
@@ -88,48 +88,42 @@ include_once ("../connect.php");
                             </a>
                         </li>
                         <li class="nav-bar-item nav-bar-item-coffee">
-                            <a href="">
+                            <a href="../catalog/tea/coffee.php">
                                 Чай
                                 <ul class="sub-menu">
-                                    <a href="">
+                                    <a href="../catalog/tea/white.php">
                                         <li id="sub-menu-item">Белый</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../catalog/tea/green.php">
                                         <li id="sub-menu-item">Зеленый</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../catalog/tea/puer.php">
                                         <li id="sub-menu-item">Пуэр</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../catalog/tea/trava.php">
                                         <li id="sub-menu-item">Травяной</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../catalog/tea/ulun.php">
                                         <li id="sub-menu-item">Улун</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../catalog/tea/black.php">
                                         <li id="sub-menu-item">Черный</li>
                                     </a>
                                 </ul>
                             </a>
                         </li>
-                        <a href="">
-                            <li class="nav-bar-item">акции</li>
-                        </a>
-                        <a href="">
+
+                        <a href="../../buy.php">
                             <li class="nav-bar-item">как купить</li>
                         </a>
-                        <a href="">
+                        <a href="../../about.php">
                             <li class="nav-bar-item">о компании</li>
                         </a>
-                        <a href="">
-                            <li class="nav-bar-item">оптовикам</li>
-                        </a>
+
                     </ul>
                 </div>
                 <div class="nav-menu">
-                    <a href="">
-                        <div id="search-scroll"></div>
-                    </a>
+
                     <?php if (!empty($_SESSION['auth'])): ?>
                         <ul class="profile-box">
                             <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
@@ -173,12 +167,8 @@ include_once ("../connect.php");
                     <?php else: ?>
                         <div id="acc"></div>
                     <?php endif; ?>
-                    <a href="">
-                        <div id="stat"></div>
-                    </a>
-                    <div class="stat_counter" id="nav-menu-item">
-                        0
-                    </div>
+
+
                     <a href="../cart/cart.php">
                         <div id="cart"></div>
                     </a>
@@ -198,9 +188,6 @@ include_once ("../connect.php");
                 </div>
             </a>
             <div class="nav-menu">
-                <a href="">
-                    <div id="search" id="nav-menu-item"></div>
-                </a>
                 <?php if (!empty($_SESSION['auth'])): ?>
                     <ul class="profile-box">
                         <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
@@ -244,24 +231,19 @@ include_once ("../connect.php");
                 <?php else: ?>
                     <div id="acc"></div>
                 <?php endif; ?>
-                <a href="">
-                    <div id="stat"></div>
-                </a>
-                <div class="stat_counter" id="nav-menu-item">
-                    0
-                </div>
                 <a href="../cart/cart.php">
-                    <div id="cart" id="nav-menu-item"></div>
+                    <div id="cart" id="nav-menu-item">
+                        <div class="cart_counter" id="nav-menu-item">
+                            <span class="cart-counter-value">0</span>
+                        </div>
+                    </div>
                 </a>
-                <div class="cart_counter" id="nav-menu-item">
-                    <span class="cart-counter-value">0</span>
-                </div>
             </div>
         </header>
         <nav>
             <ul class="nav-bar">
                 <li class="nav-bar-item nav-bar-item-coffee">
-                    <a href="">
+                    <a href="../catalog/coffee/coffee.php">
                         Кофе
                         <ul class="sub-menu">
                             <a href="">
@@ -283,42 +265,38 @@ include_once ("../connect.php");
                     </a>
                 </li>
                 <li class="nav-bar-item nav-bar-item-coffee">
-                    <a href="">
+                    <a href="../catalog/tea/coffee.php">
                         Чай
                         <ul class="sub-menu">
-                            <a href="">
+                            <a href="../catalog/tea/white.php">
                                 <li id="sub-menu-item">Белый</li>
                             </a>
-                            <a href="">
+                            <a href="../catalog/tea/green.php">
                                 <li id="sub-menu-item">Зеленый</li>
                             </a>
-                            <a href="">
+                            <a href="../catalog/tea/puer.php">
                                 <li id="sub-menu-item">Пуэр</li>
                             </a>
-                            <a href="">
+                            <a href="../catalog/tea/trava.php">
                                 <li id="sub-menu-item">Травяной</li>
                             </a>
-                            <a href="">
+                            <a href="../catalog/tea/ulun.php">
                                 <li id="sub-menu-item">Улун</li>
                             </a>
-                            <a href="">
+                            <a href="../catalog/tea/black.php">
                                 <li id="sub-menu-item">Черный</li>
                             </a>
                         </ul>
                     </a>
                 </li>
-                <a href="">
-                    <li class="nav-bar-item">акции</li>
-                </a>
-                <a href="">
+
+                <a href="../../buy.php">
                     <li class="nav-bar-item">как купить</li>
                 </a>
-                <a href="">
+                <a href="../../about.php">
                     <li class="nav-bar-item">о компании</li>
                 </a>
-                <a href="">
-                    <li class="nav-bar-item">оптовикам</li>
-                </a>
+
             </ul>
         </nav>
     </div>

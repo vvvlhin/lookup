@@ -70,70 +70,62 @@ include_once ("../../functions.php");
                 <div class="nav-scrolled">
                     <ul class="nav-bar-scrolled">
                         <li class="nav-bar-item nav-bar-item-coffee">
-                            <a href="">
+                            <a href="coffee.php">
                                 Кофе
                                 <ul class="sub-menu">
-                                    <a href="">
+                                    <a href="flavored.php">
                                         <li id="sub-menu-item">Ароматизированный кофе</li>
                                     </a>
-                                    <a href="">
+                                    <a href="mixture.php">
                                         <li id="sub-menu-item">Кофейные смеси</li>
                                     </a>
-                                    <a href="">
+                                    <a href="Monosort.php">
                                         <li id="sub-menu-item">Моносорта</li>
                                     </a>
-                                    <a href="">
+                                    <a href="spec.php">
                                         <li id="sub-menu-item">Спешалити</li>
                                     </a>
-                                    <a href="">
+                                    <a href="ferment.php">
                                         <li id="sub-menu-item">Ферментированный кофе</li>
                                     </a>
                                 </ul>
                             </a>
                         </li>
                         <li class="nav-bar-item nav-bar-item-coffee">
-                            <a href="">
+                            <a href="../catalog/tea/coffee.php">
                                 Чай
                                 <ul class="sub-menu">
-                                    <a href="">
+                                    <a href="../tea/white.php">
                                         <li id="sub-menu-item">Белый</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../tea/green.php">
                                         <li id="sub-menu-item">Зеленый</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../tea/puer.php">
                                         <li id="sub-menu-item">Пуэр</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../tea/trava.php">
                                         <li id="sub-menu-item">Травяной</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../tea/ulun.php">
                                         <li id="sub-menu-item">Улун</li>
                                     </a>
-                                    <a href="">
+                                    <a href="../tea/black.php">
                                         <li id="sub-menu-item">Черный</li>
                                     </a>
                                 </ul>
                             </a>
                         </li>
-                        <a href="">
-                            <li class="nav-bar-item">акции</li>
-                        </a>
-                        <a href="">
+                        <a href="../../buy.php">
                             <li class="nav-bar-item">как купить</li>
                         </a>
-                        <a href="">
+                        <a href="../../about.php">
                             <li class="nav-bar-item">о компании</li>
-                        </a>
-                        <a href="">
-                            <li class="nav-bar-item">оптовикам</li>
                         </a>
                     </ul>
                 </div>
                 <div class="nav-menu">
-                    <a href="">
-                        <div id="search-scroll"></div>
-                    </a>
+
                     <?php if (!empty($_SESSION['auth'])): ?>
                         <ul class="profile-box">
                             <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
@@ -177,12 +169,7 @@ include_once ("../../functions.php");
                     <?php else: ?>
                         <div id="acc"></div>
                     <?php endif; ?>
-                    <a href="">
-                        <div id="stat"></div>
-                    </a>
-                    <div class="stat_counter" id="nav-menu-item">
-                        0
-                    </div>
+
                     <a href="../../cart/cart.php">
                         <div id="cart"></div>
                     </a>
@@ -202,9 +189,6 @@ include_once ("../../functions.php");
                 </div>
             </a>
             <div class="nav-menu">
-                <a href="">
-                    <div id="search" id="nav-menu-item"></div>
-                </a>
                 <?php if (!empty($_SESSION['auth'])): ?>
                     <ul class="profile-box">
                         <svg class="" width="16" height="18" viewBox="0 0 16 18" fill-opacity="0.5" color="#999">
@@ -248,27 +232,23 @@ include_once ("../../functions.php");
                 <?php else: ?>
                     <div id="acc"></div>
                 <?php endif; ?>
-                <a href="">
-                    <div id="stat"></div>
-                </a>
-                <div class="stat_counter" id="nav-menu-item">
-                    0
-                </div>
+
                 <a href="../../cart/cart.php">
-                    <div id="cart" id="nav-menu-item"></div>
+                    <div id="cart" id="nav-menu-item">
+                        <div class="cart_counter" id="nav-menu-item">
+                            <span class="cart-counter-value">0</span>
+                        </div>
+                    </div>
                 </a>
-                <div class="cart_counter" id="nav-menu-item">
-                    <span class="cart-counter-value">0</span>
-                </div>
             </div>
         </header>
         <nav>
             <ul class="nav-bar">
                 <li class="nav-bar-item nav-bar-item-coffee">
-                    <a href="">
+                    <a href="coffee.php">
                         Кофе
                         <ul class="sub-menu">
-                            <a href="">
+                            <a href="flavored.php">
                                 <li id="sub-menu-item">Ароматизированный кофе</li>
                             </a>
                             <a href="">
@@ -287,41 +267,36 @@ include_once ("../../functions.php");
                     </a>
                 </li>
                 <li class="nav-bar-item nav-bar-item-coffee">
-                    <a href="">
+                    <a href="../tea/coffee.php">
                         Чай
                         <ul class="sub-menu">
-                            <a href="">
+                            <a href="../tea/white.php">
                                 <li id="sub-menu-item">Белый</li>
                             </a>
-                            <a href="">
+                            <a href="../tea/green.php">
                                 <li id="sub-menu-item">Зеленый</li>
                             </a>
-                            <a href="">
+                            <a href="../tea/puer.php">
                                 <li id="sub-menu-item">Пуэр</li>
                             </a>
-                            <a href="">
+                            <a href="../tea/trava.php">
                                 <li id="sub-menu-item">Травяной</li>
                             </a>
-                            <a href="">
+                            <a href="../tea/ulun.php">
                                 <li id="sub-menu-item">Улун</li>
                             </a>
-                            <a href="">
+                            <a href="../tea/black.php">
                                 <li id="sub-menu-item">Черный</li>
                             </a>
+
                         </ul>
                     </a>
                 </li>
-                <a href="">
-                    <li class="nav-bar-item">акции</li>
-                </a>
-                <a href="">
+                <a href="../../buy.php">
                     <li class="nav-bar-item">как купить</li>
                 </a>
-                <a href="">
+                <a href="../../about.php">
                     <li class="nav-bar-item">о компании</li>
-                </a>
-                <a href="">
-                    <li class="nav-bar-item">оптовикам</li>
                 </a>
             </ul>
         </nav>
@@ -380,11 +355,21 @@ include_once ("../../functions.php");
                             </i>
                         </div>
                         <ul style="display: block; background-color: #fafafa;" class="submenu-dropdown">
-                            <li class="submenu-dropdown-item">Ароматизированный кофе</li>
-                            <li class="submenu-dropdown-item">Кофейные смеси</li>
-                            <li class="submenu-dropdown-item">Моносорта</li>
-                            <li class="submenu-dropdown-item">Спешалити</li>
-                            <li class="submenu-dropdown-item">Ферментированный кофе</li>
+                            <a href="flavored.php">
+                                <li class="submenu-dropdown-item">Ароматизированный кофе</li>
+                            </a>
+                            <a href="mixture.php">
+                                <li class="submenu-dropdown-item">Кофейные смеси</li>
+                            </a>
+                            <a href="Monosort.php">
+                                <li class="submenu-dropdown-item">Моносорта</li>
+                            </a>
+                            <a href="spec.php">
+                                <li class="submenu-dropdown-item">Спешалити</li>
+                            </a>
+                            <a href="ferment.php">
+                                <li class="submenu-dropdown-item">Ферментированный кофе</li>
+                            </a>
                         </ul>
                     </li>
                     <li id="menu-dropdown-item">
@@ -400,13 +385,29 @@ include_once ("../../functions.php");
                             </i>
                         </div>
                         <ul style="display: none;" class="submenu-dropdown">
-                            <li class="submenu-dropdown-item">Белый</li>
-                            <li class="submenu-dropdown-item">Зеленый</li>
-                            <li class="submenu-dropdown-item">Пуэр</li>
-                            <li class="submenu-dropdown-item">Ароматизированный</li>
-                            <li class="submenu-dropdown-item">Травяной, фруктово-ягодный</li>
-                            <li class="submenu-dropdown-item">Улун</li>
-                            <li class="submenu-dropdown-item">Чёрный</li>
+                            <a href="../tea/white.php">
+                                <li class="submenu-dropdown-item">Белый</li>
+                            </a>
+                            <a href="../tea/green.php">
+                                <li class="submenu-dropdown-item">Зеленый</li>
+                            </a>
+                            <a href="../tea/puer.php">
+                                <li class="submenu-dropdown-item">Пуэр</li>
+                            </a>
+                            <a href="../tea/aroma.php">
+                                <li class="submenu-dropdown-item">Ароматизированный</li>
+                            </a>
+                            <a href="../tea/trava.php">
+                                <li class="submenu-dropdown-item">Травяной, фруктово-ягодный</li>
+                            </a>
+                            <a href="..//ulun.php">
+                                <li class="submenu-dropdown-item">Улун</li>
+                            </a>
+                            <a href="../tea/black.php">
+                                <li class="submenu-dropdown-item">Чёрный</li>
+                            </a>
+
+
                         </ul>
                     </li>
                 </ul>
@@ -436,7 +437,7 @@ include_once ("../../functions.php");
                                 Цена
                             </span>
                             <?
-                            $sql = mysqli_query($connect, "SELECT MIN(cost250) as min, MAX(cost250) as max FROM `Tovar`");
+                            $sql = mysqli_query($connect, "SELECT MIN(cost250) as min, MAX(cost250) as max FROM `Tovar` WHERE Groups_tovar = 1");
                             $res = mysqli_fetch_assoc($sql);
                             ?>
                             <div id="slider-range">

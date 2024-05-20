@@ -350,7 +350,7 @@ main {
     line-height: 25px;
     align-self: center;
     letter-spacing: normal;
-    width: 300px;
+    width: 150px;
 }
 
 #logo {
@@ -460,7 +460,7 @@ main {
     background: #44A2D5;
     align-self: center;
     text-align: center;
-    margin-left: 5px;
+    margin-left: 25px;
     margin-bottom: 3px;
     color: #FFF;
     font-family: 'Montserrat', sans-serif;
@@ -519,6 +519,7 @@ nav {
     line-height: 17.297px;
     letter-spacing: 1.2px;
     color: #222;
+    width: 200px;
     position: relative;
 }
 
@@ -1478,4 +1479,13 @@ input {
 
 .catalog-card-item-link {
     color: #333;
+}
+
+.text-pre {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+    line-height: 2;
+    margin-bottom: 20px;
 }

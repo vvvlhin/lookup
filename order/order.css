@@ -313,7 +313,7 @@ main {
     line-height: 25px;
     align-self: center;
     letter-spacing: normal;
-    width: 300px;
+    width: 150px;
 }
 
 #logo {
@@ -423,7 +423,7 @@ main {
     background: #44A2D5;
     align-self: center;
     text-align: center;
-    margin-left: 5px;
+    margin-left: 25px;
     margin-bottom: 3px;
     color: #FFF;
     font-family: 'Montserrat', sans-serif;
@@ -483,6 +483,7 @@ nav {
     letter-spacing: 1.2px;
     color: #222;
     position: relative;
+    width: 200px;
 }
 
 .nav-scrolled {

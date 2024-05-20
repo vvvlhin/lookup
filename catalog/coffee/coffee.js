@@ -169,7 +169,7 @@ $(function () {
 
 $("#form").on("submit", function () {
   $.ajax({
-    url: '../login/login.php',
+    url: '../../login/login.php',
     method: 'post',
     dataType: 'html',
     data: $(this).serialize(),
@@ -187,7 +187,7 @@ $("#form").on("submit", function () {
 
 let exit = () => {
   $.ajax({
-    url: '../login/logout.php',
+    url: '../../login/logout.php',
     method: 'post',
     dataType: 'html',
     data: $(this).serialize(),
@@ -415,44 +415,3 @@ function kisl() {
     });
   })
 }
-
-
-//Сортировка по кислотности
-
-// function kisl() {
-//   document.querySelector('.goods_list').style.opacity = ".5";
-//   $('#load').fadeIn(1000, function () {
-//     $.ajax({
-//       url: 'kisl_search.php',
-//       method: 'post',
-//       dataType: 'html',
-//       data: {
-//         kinput1: document.querySelector("#kisl-input1").checked,
-//         kinput2: document.querySelector("#kisl-input2").checked,
-//         kinput3: document.querySelector("#kisl-input3").checked,
-//         kinput4: document.querySelector("#kisl-input4").checked,
-//         kinput5: document.querySelector("#kisl-input5").checked,
-//         ginput1: document.querySelector("#gorech-input1").checked,
-//         ginput2: document.querySelector("#gorech-input2").checked,
-//         ginput3: document.querySelector("#gorech-input3").checked,
-//         ginput4: document.querySelector("#gorech-input4").checked,
-//         ginput5: document.querySelector("#gorech-input5").checked,
-//         pinput1: document.querySelector("#poln-input1").checked,
-//         pinput2: document.querySelector("#poln-input2").checked,
-//         pinput3: document.querySelector("#poln-input3").checked,
-//         pinput4: document.querySelector("#poln-input4").checked,
-//         pinput5: document.querySelector("#poln-input5").checked,
-//         stock: document.querySelector('#input-stock').checked,
-//         new: document.querySelector('#input-new').checked,
-//         rec: document.querySelector('#input-rec').checked,
-//         hit: document.querySelector('#input-hit').checked
-//       },
-//       success: function (data) {
-//         // log(data)
-//         $('.wrapper-goods-list').html(data)
-//         document.querySelector('.goods_list').style.opacity = "1";
-//         $('#load').fadeOut(1000)
-//       }
-//     });
-//   })
-// }

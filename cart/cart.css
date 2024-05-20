@@ -314,7 +314,7 @@ main {
     line-height: 25px;
     align-self: center;
     letter-spacing: normal;
-    width: 300px;
+    width: 150px;
 }
 
 #logo {
@@ -424,7 +424,7 @@ main {
     background: #44A2D5;
     align-self: center;
     text-align: center;
-    margin-left: 5px;
+    margin-left: 25px;
     margin-bottom: 3px;
     color: #FFF;
     font-family: 'Montserrat', sans-serif;
@@ -482,6 +482,7 @@ nav {
     font-weight: 700;
     line-height: 17.297px;
     letter-spacing: 1.2px;
+    width: 200px;
     color: #222;
     position: relative;
 }
@@ -957,7 +958,8 @@ footer {
     flex-direction: column;
 }
 
-#phone-text {
+
+-text {
     color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;

@@ -155,6 +155,26 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  $("#live_search_order").keyup(function () {
+    var query = $(this).val();
+    // if (query != "") {
+    $.ajax({
+      url: '../admin/order_tmp.php',
+      method: 'POST',
+      data: {
+        query: query,
+      },
+      success: function (data) {
+        // log(data)
+        $('.tbody').html(data)
+        // document.querySelector('.page-list').style.display = "none";
+      }
+    });
+    // }
+  });
+});
+
 for (items of document.querySelectorAll("#mdiv")) {
   items.addEventListener("click", function () {
     // log(this.closest('.row__group').querySelector('#id').innerText)
@@ -181,6 +201,14 @@ document.querySelectorAll('.plus').forEach(tmp => {
   })
 })
 
+document.querySelectorAll('.plus-img').forEach(tmp => {
+  tmp.addEventListener("click", () => {
+    document.querySelector('.blur').style = "filter: blur(5px);";
+    document.querySelector('.main').style.display = "block";
+    document.querySelector('.main').style.width = "auto";
+  })
+})
+
 //Редактирование товара
 document.querySelectorAll('#edit').forEach(el => {
   el.addEventListener("click", function () {
@@ -190,6 +218,45 @@ document.querySelectorAll('#edit').forEach(el => {
 
       $.ajax({
         url: 'edit.php',
+        method: 'post',
+        dataType: 'html',
+        data: { id: this.closest('.row__group').querySelector('#id').innerText },
+        success: function (data) {
+          $(data).prependTo($("body"));
+        }
+
+      });
+      return false;
+    }
+  })
+})
+document.querySelectorAll('#edit-img').forEach(el => {
+  el.addEventListener("click", function () {
+    if (document.querySelector('.auth-edit')) {
+      return false;
+    } else {
+
+      $.ajax({
+        url: 'edit-img.php',
+        method: 'post',
+        dataType: 'html',
+        data: { id: this.closest('.row__group').querySelector('#id').innerText },
+        success: function (data) {
+          $(data).prependTo($("body"));
+        }
+
+      });
+      return false;
+    }
+  })
+})
+document.querySelectorAll('#edit-group').forEach(el => {
+  el.addEventListener("click", function () {
+    if (document.querySelector('.auth-edit')) {
+      return false;
+    } else {
+      $.ajax({
+        url: 'edit-group.php',
         method: 'post',
         dataType: 'html',
         data: { id: this.closest('.row__group').querySelector('#id').innerText },
@@ -227,28 +294,44 @@ function closed() {
 //   }
 // });
 
-// $(function () {
-//   $('#form').submit(function () {
-//     var file = $('#file'), result = $('#result');
-//     if (file.prop('files').length) {
-//       var formData = new FormData();
-//       formData.append('file', file.prop('files')[0]);
-//       $.ajax({
-//         url: 'img_tmp.php',
-//         data: formData,
-//         processData: false,
-//         contentType: false,
-//         type: 'POST',
-//         success: function (data) {
-//           // log(data)
-//         }
-//       });
-//     } else {
-//       result.html("Не выбран файл для загрузки!");
-//     }
-//     return false;
-//   });
-// });
+$('#form-img').submit(function (event) {
+  event.preventDefault();
+  var file = $('.file'), name = $('.name').val()
+  if (file.prop('files').length) {
+    var formData = new FormData();
+    formData.append('file', file.prop('files')[0]);
+    formData.append('gg', name);
+    $.ajax({
+      url: 'img_tmp.php',
+      dataType: 'html',
+      data: formData,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function (data) {
+        location.reload();
+      }
+    });
+  } else {
+    result.html("Не выбран файл для загрузки!");
+  }
+  return false;
+});
+
+$('#form-group').submit(function (event) {
+  $.ajax({
+    url: 'group_tmp.php',
+    method: 'post',
+    dataType: 'html',
+    data: $(this).serialize(),
+    success: function (data) {
+      location.reload();
+      // log(data)
+    }
+  });
+  return false;
+});
+
 
 $('body').on('input', '.input-range', function () {
   var value = this.value.replace(/[^0-9]/g, '');
@@ -295,3 +378,20 @@ document.querySelectorAll('#delete').forEach(el => {
     return false;
   })
 })
+
+document.querySelectorAll('#delete-img').forEach(el => {
+  el.addEventListener("click", () => {
+    $.ajax({
+      url: 'delete-img.php',
+      method: 'post',
+      dataType: 'html',
+      data: { id: el.closest('.row__group').querySelector('#id').innerText },
+      success: function (data) {
+        // location.reload();
+        log(data)
+      }
+    });
+    return false;
+  })
+})
+
