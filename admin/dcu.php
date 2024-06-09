@@ -45,7 +45,7 @@
                     8 800 302-26-54
                 </p>
                 <span style="display: flex; justify-content: center; text-align: center;">
-                    ВЕДОМОСТЬ ДОСТАВКИ <br>
+                    Отчет реализованных товаров в разрезе номенклатуры <br>
                     За период:
                     <?
                     $start = strtotime($_POST['start']);
@@ -64,65 +64,37 @@
                     echo date('d.m.Y Открыт: H:i:s', time());
                     ?>
                 </P>
-                <table>
+                <table style="margin-top: 30px;">
                     <tbody style="text-align: left;">
                         <tr id="last">
-                            <th>Номер заказа / Адрес доставки / Номер телефона клиента</th>
                             <th>Товар</th>
-                            <th>Вес</th>
                             <th>Количество</th>
-                            <th>Доставлено</th>
+                            <th>Сумма (Всего)</th>
                         </tr>
                         <?
                         include_once ('../connect.php');
-                        $sql = mysqli_query($connect, "SELECT phone, Code_orders,date, City, COUNT(orders_body.code_tovara) as jopa FROM `Orders`, orders_body WHERE date BETWEEN '" . $_POST['start'] . "' AND '" . $_POST['end'] . "' AND orders_body.id_zakaza = Orders.Code_orders GROUP BY Orders.Code_orders;");
+                        $sql = mysqli_query($connect, "SELECT date, Tovar.Name_tovar, sum(quantity) as q ,sum(cost) as c FROM orders_body INNER JOIN Orders ON id_zakaza = Orders.Code_orders INNER JOIN Tovar ON code_tovara = Tovar.Code_tovar WHERE date BETWEEN '" . $_POST['start'] . "' AND '" . $_POST['end'] . "' AND Orders.Status = 3 GROUP BY code_tovara;");
                         $products = array();
                         while ($result = mysqli_fetch_array($sql)) {
                             $products[] = $result;
                         }
-                        $sql = mysqli_query($connect, "SELECT id_zakaza, COUNT(code_tovara) as jopa FROM `orders_body` GROUP BY id_zakaza;");
-                        $c = array();
-                        while ($result = mysqli_fetch_array($sql)) {
-                            $c[] = $result;
-                        }
+                        $sql = mysqli_query($connect, "SELECT COUNT(code_tovara) as a, sum(quantity) as q ,sum(cost) as c FROM orders_body INNER JOIN Orders ON id_zakaza = Orders.Code_orders WHERE Orders.Status = 3 GROUP BY code_tovara;");
                         ?>
                         <? foreach ($products as $product): ?>
                             <tr>
-                                <td rowspan="<?= $product['jopa'] ?>">
-                                    <? echo $product['Code_orders'] ?>
-                                    <br>
-                                    <? echo $product['City'] ?>
-                                    <br>
-                                    <? echo $product['phone'] ?>
+                                <td rowspan="<?= $product['a'] ?>">
+                                    <? echo $product['Name_tovar'] ?>
                                 </td>
-                                <?
-                                $arr = array();
-                                $sql = mysqli_query($connect, "SELECT id, id_zakaza, Tovar.Name_tovar, weight, quantity FROM `orders_body` INNER JOIN Tovar ON Tovar.Code_tovar = orders_body.code_tovara WHERE id_zakaza = " . $product['Code_orders'] . ";");
-                                while ($result = mysqli_fetch_array($sql)) {
-                                    $arr[] = $result;
-                                }
-                                ?>
-                                <? foreach ($arr as $a): ?>
-                                    <td>
-                                        <? echo $a['Name_tovar'] ?>
-                                    </td>
-                                    <td>
-                                        <? echo $a['weight'] ?>
-                                    </td>
-                                    <td style="text-align: center;">
-                                        <? echo $a['quantity'] ?>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                            <? endforeach ?>
+                                <td style="text-align: center;">
+                                    <? echo $product['q'] ?>
+                                </td>
+                                <td style="text-align: center;">
+                                    <? echo $product['c'] ?> ₽
+                                </td>
+                            </tr>
                         <? endforeach ?>
                     </tbody>
                 </table>
-                <span style=" margin-top: 20px;display: flex; align-items: end; gap: 10px;">
-                    Курьер:
-                    <hr style="width: 150px; margin: 0;">
-                </span>
             </div>
         </div>
     </div>

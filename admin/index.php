@@ -228,13 +228,14 @@ $user = mysqli_fetch_assoc($res);
       <h1 class="preview-text" style="padding: 25px 50px;">Список заказов
         <form style="font-size: 14px; display: flex; align-items: center; gap: 10px;" action="../admin/doc.php"
           method="post">
-          <input type="submit" class="plus-group" value="Отчетность"></input>
+          <input type="submit" class="plus-group" value="Отчетность за период"></input>
           <div>
             Период:
             <input name="start" class="start" onfocus="(this.type='date')" type="text" placeholder="Начало периода:">
             <input name="end" class="end" onfocus="(this.type='date')" type="text" placeholder="Конец периода периода:">
           </div>
         </form>
+        </div>
         </div>
       </h1>
       <div class="table-section">

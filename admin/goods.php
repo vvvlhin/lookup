@@ -326,6 +326,16 @@ $user = mysqli_fetch_assoc($res);
       <!-- ========== section start ========== -->
       <section class="section">
         <h1 class="preview-text">Список заказов
+          <form style="font-size: 14px; display: flex; align-items: center; gap: 10px;" action="../admin/dcu.php"
+            method="post">
+            <input type="submit" class="plus-group" value="Продано за период"></input>
+            <div>
+              Период:
+              <input name="start" class="start" onfocus="(this.type='date')" type="text" placeholder="Начало периода:">
+              <input name="end" class="end" onfocus="(this.type='date')" type="text"
+                placeholder="Конец периода периода:">
+            </div>
+          </form>
           <div class="plus"></div>
         </h1>
         <div class="table-section">
